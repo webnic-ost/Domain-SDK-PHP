@@ -1,0 +1,27 @@
+var class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_1_1_domain =
+[
+    [ "__construct", "class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_1_1_domain.html#a0182378cbfc85600dd575a0065b25ba4", null ],
+    [ "checkDomainPattern", "class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_1_1_domain.html#ab68fd9f5d551fc351c7d9677b56419fa", null ],
+    [ "countTotalDomains", "class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_1_1_domain.html#ad93173dfc9a04587deaa8a78018a8bca", null ],
+    [ "deleteDomain", "class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_1_1_domain.html#aba30adf3057f3adb4ccdd1d08adb0e0f", null ],
+    [ "downloadCertificate", "class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_1_1_domain.html#a8fc886c40503010f842195f58ddade67", null ],
+    [ "downloadVerificationDocument", "class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_1_1_domain.html#af5fa5be12ec7618a840a1f7cf2d23c6c", null ],
+    [ "getDomainInfo", "class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_1_1_domain.html#a526e80f97db1995ddd7d527a2b4daecc", null ],
+    [ "getDomainStatistics", "class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_1_1_domain.html#a97357175c142f7607d91a34c106b98c5", null ],
+    [ "getTopDomainAvailableList", "class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_1_1_domain.html#ac56691fca427ffcff91e89db3a1e12f1", null ],
+    [ "getUniversalWhoisInfo", "class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_1_1_domain.html#a61b8fd5c39b8fd21cd4b2a5b0ee0527b", null ],
+    [ "getWebnicDefaultNameservers", "class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_1_1_domain.html#ae7b47a494ab90dc485bc57fa41faccfc", null ],
+    [ "queryDomain", "class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_1_1_domain.html#a9f672e047d8e24651b5786fedea33bbd", null ],
+    [ "registerDomain", "class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_1_1_domain.html#a2e89fb010d2ac5a2dbe3ec1a89bf74b1", null ],
+    [ "renewDomain", "class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_1_1_domain.html#a8e3b88bb0ed6609f2b6cfa2eb13971d0", null ],
+    [ "resendDomainVerificationEmail", "class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_1_1_domain.html#acf834324579a8187d2b758faaa4e4e38", null ],
+    [ "resetAuthorizationInformation", "class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_1_1_domain.html#a0d7e4a4c3c40a3856ae909e1cb7530aa", null ],
+    [ "restoreDomain", "class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_1_1_domain.html#accd6e68e85d448adbc75c39ea5179f78", null ],
+    [ "sendAuthorizationInformation", "class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_1_1_domain.html#a6ae3fedf681bee4da6dca970a2fd2f49", null ],
+    [ "toggleAutoRenew", "class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_1_1_domain.html#a266a41de365b5860bcd990228e18f138", null ],
+    [ "toggleProxySubscription", "class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_1_1_domain.html#a5fb0e3ea4b78abeda44526a393e3c59f", null ],
+    [ "toggleWhoisPrivacy", "class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_1_1_domain.html#ac7fa3c192bc8848fe238797ef61d92de", null ],
+    [ "updateDomainNameserver", "class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_1_1_domain.html#ada1bebc8e47c08deb8e768fcc11d4625", null ],
+    [ "updateDomainStatus", "class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_1_1_domain.html#a7c22b2754a583b1db0d1fef9a3981795", null ],
+    [ "uploadVerificationDocument", "class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_1_1_domain.html#aaf01a72b5e8ea5c27bdfb12b90e3e479", null ]
+];

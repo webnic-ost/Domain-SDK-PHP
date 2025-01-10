@@ -1,0 +1,20 @@
+{
+  "name": "webnic/webnic-sdk",
+  "description": "A PHP SDK for Webnic RESTful API",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Webnic\\WebnicSDK\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Webnic\\WebnicSDK\\Tests\\": "tests/"
+    }
+  },
+  "require": {
+    "php": ">=7.4 <=8.2",
+    "guzzlehttp/guzzle": "^7.0"
+  }
+}

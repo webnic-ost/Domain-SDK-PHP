@@ -1,0 +1,11 @@
+/vendor
+/backup
+/Tests
+# /docs
+phpDocumentor.phar
+/docs_phpdoc_version
+/.phpdoc
+.phpunit.result.cache
+generate_test_cases.php
+GeneratedTestCases.php
+phpunit.xml

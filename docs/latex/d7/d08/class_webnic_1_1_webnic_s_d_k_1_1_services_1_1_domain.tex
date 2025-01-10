@@ -1,0 +1,638 @@
+\doxysection{Webnic\textbackslash{}Webnic\+SDK\textbackslash{}Services\textbackslash{}Domain Class Reference}
+\hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain}{}\label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}}
+Inheritance diagram for Webnic\textbackslash{}Webnic\+SDK\textbackslash{}Services\textbackslash{}Domain\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d7/d08/class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a96dcd6811bb39694643bf37b01d84f73}{\+\_\+\+\_\+construct}} (string \$client\+Id, string \$client\+Secret, string \$token\+Endpoint)
+\item 
+\mbox{\hyperlink{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a26a5d44f69463dbc8a983fe204ad2028}{check\+Domain\+Pattern}} (string \$domain\+Name)
+\item 
+\mbox{\hyperlink{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a78ce95c3ad9a6fdc104385b5ff888a77}{query\+Domain}} (string \$domain\+Name, ?string \$rescode=null)
+\item 
+\mbox{\hyperlink{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a5c81e6c59d852e3eb84eae966cf424a2}{count\+Total\+Domains}} ()
+\item 
+\mbox{\hyperlink{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a06c32db86c6fa1737667861102b1cda0}{get\+Domain\+Info}} (string \$domain\+Name)
+\item 
+\mbox{\hyperlink{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a3957cc03788b0a9ee9afa211174b2f4d}{get\+Universal\+Whois\+Info}} (string \$domain\+Name)
+\item 
+\mbox{\hyperlink{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a7f05947aceaee1a8a17ebcb691041dda}{update\+Domain\+Status}} (string \$domain\+Name, string \$status)
+\item 
+\mbox{\hyperlink{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a26b418f83c89b6c5c3fa6d85faf4b181}{get\+Webnic\+Default\+Nameservers}} ()
+\item 
+\mbox{\hyperlink{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a8ad3822d539669e15863194ff85d2a42}{update\+Domain\+Nameserver}} (string \$domain\+Name, array \$nameservers)
+\item 
+\mbox{\hyperlink{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a43b13446df3501b2ce1f654f58ac1173}{toggle\+Auto\+Renew}} (bool \$auto\+Renew, array \$domain\+List)
+\item 
+\mbox{\hyperlink{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_ab0348c464f6f362fb872d46bf59bf493}{toggle\+Whois\+Privacy}} (bool \$active, string \$domain\+Name)
+\item 
+\mbox{\hyperlink{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_aa2aa27ed0dbffa2b5f095d21c5c3d068}{toggle\+Proxy\+Subscription}} (string \$action, string \$domain\+Name)
+\item 
+\mbox{\hyperlink{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a935d3fa48033cae82ef1dfe12675948c}{register\+Domain}} (array \$registration\+Data)
+\item 
+\mbox{\hyperlink{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_aee97c915ddbec5ccfbf7d575fcda4da3}{renew\+Domain}} (array \$renew\+Data)
+\item 
+\mbox{\hyperlink{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_add1eccca0676ec9f1ce90e91d3c55572}{restore\+Domain}} (array \$restore\+Data)
+\item 
+\mbox{\hyperlink{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a9302077007015f17bf9b5de173f3fef1}{delete\+Domain}} (string \$domain\+Name)
+\item 
+\mbox{\hyperlink{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a63362058e334933b3fc697d589b2e8d1}{resend\+Domain\+Verification\+Email}} (string \$domain\+Name)
+\item 
+\mbox{\hyperlink{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_ab8a467aa561622c2905bb23f42431e33}{download\+Certificate}} (string \$domain\+Name, ?string \$lang=\textquotesingle{}eng\textquotesingle{})
+\item 
+\mbox{\hyperlink{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a343e3e02aed71a2de76b44bc3cb96c9e}{reset\+Authorization\+Information}} (string \$domain\+Name)
+\item 
+\mbox{\hyperlink{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a20ad2f5f5a604f1f9b663fb854e5481c}{send\+Authorization\+Information}} (string \$domain\+Name)
+\item 
+\mbox{\hyperlink{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a30c1251f34b05050be0c954607b6f15e}{upload\+Verification\+Document}} (int \$id, array \$document)
+\item 
+\mbox{\hyperlink{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a3054a1c318d4f361217cd5a48cd899af}{download\+Verification\+Document}} (int \$id, string \$document\+Url)
+\item 
+\mbox{\hyperlink{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a358747c17603ed7177b2089a6753280d}{get\+Domain\+Statistics}} (string \$type)
+\item 
+\mbox{\hyperlink{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a8a4e2e1c30c8bf299fd2de45f1387640}{get\+Top\+Domain\+Available\+List}} (string \$domain\+Name)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a89b85bf7bd4163054030d383ff1663c8}{build\+Url}} (string \$endpoint)
+\item 
+\mbox{\hyperlink{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a854ede4318298a43eeadce2a97401e70}{send\+Request}} (string \$method, string \$endpoint, array \$query\+Params=\mbox{[}$\,$\mbox{]}, array \$body=\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_abce44f71c9381342b55d21c4e81757e9}\label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_abce44f71c9381342b55d21c4e81757e9} 
+string {\bfseries \$domain\+Url} = \textquotesingle{}/domain/v2\textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a96dcd6811bb39694643bf37b01d84f73}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a96dcd6811bb39694643bf37b01d84f73} 
+Webnic\textbackslash{}\+Webnic\+SDK\textbackslash{}\+Services\textbackslash{}\+Domain\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{string}]{\$client\+Id}{, }\item[{string}]{\$client\+Secret}{, }\item[{string}]{\$token\+Endpoint}{}\end{DoxyParamCaption})}
+
+Domain constructor.
+
+Initializes the Domain object with client credentials and token endpoint.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$client\+Id} & The client ID for authentication. \\
+\hline
+string & {\em \$client\+Secret} & The client secret for authentication. \\
+\hline
+string & {\em \$token\+Endpoint} & The endpoint to retrieve the access token. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a89b85bf7bd4163054030d383ff1663c8}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}!buildUrl@{buildUrl}}
+\index{buildUrl@{buildUrl}!Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}}
+\doxysubsubsection{\texorpdfstring{buildUrl()}{buildUrl()}}
+{\footnotesize\ttfamily \label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a89b85bf7bd4163054030d383ff1663c8} 
+Webnic\textbackslash{}\+Webnic\+SDK\textbackslash{}\+Services\textbackslash{}\+Domain\+::build\+Url (\begin{DoxyParamCaption}\item[{string}]{\$endpoint}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Builds the complete URL for the given endpoint.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$endpoint} & The specific endpoint to append to the base URL. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string The complete URL for the request. 
+\end{DoxyReturn}
+\Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a26a5d44f69463dbc8a983fe204ad2028}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}!checkDomainPattern@{checkDomainPattern}}
+\index{checkDomainPattern@{checkDomainPattern}!Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}}
+\doxysubsubsection{\texorpdfstring{checkDomainPattern()}{checkDomainPattern()}}
+{\footnotesize\ttfamily \label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a26a5d44f69463dbc8a983fe204ad2028} 
+Webnic\textbackslash{}\+Webnic\+SDK\textbackslash{}\+Services\textbackslash{}\+Domain\+::check\+Domain\+Pattern (\begin{DoxyParamCaption}\item[{string}]{\$domain\+Name}{}\end{DoxyParamCaption})}
+
+Checks the validity of a domain name pattern.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$domain\+Name} & The domain name to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The response indicating whether the domain pattern is valid.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+Exception If the request fails. \Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a5c81e6c59d852e3eb84eae966cf424a2}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}!countTotalDomains@{countTotalDomains}}
+\index{countTotalDomains@{countTotalDomains}!Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}}
+\doxysubsubsection{\texorpdfstring{countTotalDomains()}{countTotalDomains()}}
+{\footnotesize\ttfamily \label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a5c81e6c59d852e3eb84eae966cf424a2} 
+Webnic\textbackslash{}\+Webnic\+SDK\textbackslash{}\+Services\textbackslash{}\+Domain\+::count\+Total\+Domains (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Counts the total number of domains associated with the client.
+
+\begin{DoxyReturn}{Returns}
+array The response containing the total count of domains.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+Exception If the request fails. \Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a9302077007015f17bf9b5de173f3fef1}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}!deleteDomain@{deleteDomain}}
+\index{deleteDomain@{deleteDomain}!Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}}
+\doxysubsubsection{\texorpdfstring{deleteDomain()}{deleteDomain()}}
+{\footnotesize\ttfamily \label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a9302077007015f17bf9b5de173f3fef1} 
+Webnic\textbackslash{}\+Webnic\+SDK\textbackslash{}\+Services\textbackslash{}\+Domain\+::delete\+Domain (\begin{DoxyParamCaption}\item[{string}]{\$domain\+Name}{}\end{DoxyParamCaption})}
+
+Deletes a specified domain.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$domain\+Name} & The domain name to delete. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The response indicating the result of the deletion operation.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+Exception If the request fails. \Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_ab8a467aa561622c2905bb23f42431e33}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}!downloadCertificate@{downloadCertificate}}
+\index{downloadCertificate@{downloadCertificate}!Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}}
+\doxysubsubsection{\texorpdfstring{downloadCertificate()}{downloadCertificate()}}
+{\footnotesize\ttfamily \label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_ab8a467aa561622c2905bb23f42431e33} 
+Webnic\textbackslash{}\+Webnic\+SDK\textbackslash{}\+Services\textbackslash{}\+Domain\+::download\+Certificate (\begin{DoxyParamCaption}\item[{string}]{\$domain\+Name}{, }\item[{?string}]{\$lang}{ = {\ttfamily \textquotesingle{}eng\textquotesingle{}}}\end{DoxyParamCaption})}
+
+Downloads a certificate for a specified domain.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$domain\+Name} & The domain name for which to download the certificate. \\
+\hline
+string | null & {\em \$lang} & The language for the certificate (default is \textquotesingle{}eng\textquotesingle{}). // Available language options\+: Simplified Chinese (chi), Traditional Chinese (zho), Indonesion (ind), Thai (tha), Vietnamese (vie) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The response containing the certificate download information.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+Exception If the request fails. \Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a3054a1c318d4f361217cd5a48cd899af}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}!downloadVerificationDocument@{downloadVerificationDocument}}
+\index{downloadVerificationDocument@{downloadVerificationDocument}!Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}}
+\doxysubsubsection{\texorpdfstring{downloadVerificationDocument()}{downloadVerificationDocument()}}
+{\footnotesize\ttfamily \label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a3054a1c318d4f361217cd5a48cd899af} 
+Webnic\textbackslash{}\+Webnic\+SDK\textbackslash{}\+Services\textbackslash{}\+Domain\+::download\+Verification\+Document (\begin{DoxyParamCaption}\item[{int}]{\$id}{, }\item[{string}]{\$document\+Url}{}\end{DoxyParamCaption})}
+
+Downloads a verification document for a specified domain.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$id} & The ID associated with the domain for which the document is being downloaded. \\
+\hline
+string & {\em \$document\+Url} & The URL of the document to download. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The response indicating the result of the download operation.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+Exception If the request fails. \Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a06c32db86c6fa1737667861102b1cda0}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}!getDomainInfo@{getDomainInfo}}
+\index{getDomainInfo@{getDomainInfo}!Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}}
+\doxysubsubsection{\texorpdfstring{getDomainInfo()}{getDomainInfo()}}
+{\footnotesize\ttfamily \label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a06c32db86c6fa1737667861102b1cda0} 
+Webnic\textbackslash{}\+Webnic\+SDK\textbackslash{}\+Services\textbackslash{}\+Domain\+::get\+Domain\+Info (\begin{DoxyParamCaption}\item[{string}]{\$domain\+Name}{}\end{DoxyParamCaption})}
+
+Retrieves information about a specific domain.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$domain\+Name} & The domain name to retrieve information for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The response containing domain information.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+Exception If the request fails. \Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a358747c17603ed7177b2089a6753280d}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}!getDomainStatistics@{getDomainStatistics}}
+\index{getDomainStatistics@{getDomainStatistics}!Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}}
+\doxysubsubsection{\texorpdfstring{getDomainStatistics()}{getDomainStatistics()}}
+{\footnotesize\ttfamily \label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a358747c17603ed7177b2089a6753280d} 
+Webnic\textbackslash{}\+Webnic\+SDK\textbackslash{}\+Services\textbackslash{}\+Domain\+::get\+Domain\+Statistics (\begin{DoxyParamCaption}\item[{string}]{\$type}{}\end{DoxyParamCaption})}
+
+Retrieves domain statistics based on the specified type.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$type} & The type of statistics to retrieve. Allowed values\+: "{}total"{}, "{}total\+Active"{}, "{}total\+New\+Transfer\+In"{}, "{}total\+Expired"{}, "{}total\+Expiring"{}, "{}total\+Deleted"{}, "{}total\+Transfer\+Protected"{}, "{}total\+Name\+Protected"{}, "{}total\+Redemption\+Grace"{}, "{}total\+Pending\+Verify"{}, "{}total\+Pending"{}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The response containing the requested statistics.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+Exception If the request fails. \Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a8a4e2e1c30c8bf299fd2de45f1387640}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}!getTopDomainAvailableList@{getTopDomainAvailableList}}
+\index{getTopDomainAvailableList@{getTopDomainAvailableList}!Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}}
+\doxysubsubsection{\texorpdfstring{getTopDomainAvailableList()}{getTopDomainAvailableList()}}
+{\footnotesize\ttfamily \label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a8a4e2e1c30c8bf299fd2de45f1387640} 
+Webnic\textbackslash{}\+Webnic\+SDK\textbackslash{}\+Services\textbackslash{}\+Domain\+::get\+Top\+Domain\+Available\+List (\begin{DoxyParamCaption}\item[{string}]{\$domain\+Name}{}\end{DoxyParamCaption})}
+
+Retrieves a list of available top domains based on the specified domain name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$domain\+Name} & The domain name to check for available top domains. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The response containing the list of available top domains.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+Exception If the request fails. \Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a3957cc03788b0a9ee9afa211174b2f4d}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}!getUniversalWhoisInfo@{getUniversalWhoisInfo}}
+\index{getUniversalWhoisInfo@{getUniversalWhoisInfo}!Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}}
+\doxysubsubsection{\texorpdfstring{getUniversalWhoisInfo()}{getUniversalWhoisInfo()}}
+{\footnotesize\ttfamily \label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a3957cc03788b0a9ee9afa211174b2f4d} 
+Webnic\textbackslash{}\+Webnic\+SDK\textbackslash{}\+Services\textbackslash{}\+Domain\+::get\+Universal\+Whois\+Info (\begin{DoxyParamCaption}\item[{string}]{\$domain\+Name}{}\end{DoxyParamCaption})}
+
+Retrieves universal WHOIS information for a specific domain.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$domain\+Name} & The domain name to query. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The response containing WHOIS information.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+Exception If the request fails. \Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a26b418f83c89b6c5c3fa6d85faf4b181}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}!getWebnicDefaultNameservers@{getWebnicDefaultNameservers}}
+\index{getWebnicDefaultNameservers@{getWebnicDefaultNameservers}!Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}}
+\doxysubsubsection{\texorpdfstring{getWebnicDefaultNameservers()}{getWebnicDefaultNameservers()}}
+{\footnotesize\ttfamily \label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a26b418f83c89b6c5c3fa6d85faf4b181} 
+Webnic\textbackslash{}\+Webnic\+SDK\textbackslash{}\+Services\textbackslash{}\+Domain\+::get\+Webnic\+Default\+Nameservers (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Retrieves the default nameservers provided by \doxylink{namespace_webnic}{Webnic}.
+
+\begin{DoxyReturn}{Returns}
+array The response containing the default nameservers.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+Exception If the request fails. \Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a78ce95c3ad9a6fdc104385b5ff888a77}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}!queryDomain@{queryDomain}}
+\index{queryDomain@{queryDomain}!Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}}
+\doxysubsubsection{\texorpdfstring{queryDomain()}{queryDomain()}}
+{\footnotesize\ttfamily \label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a78ce95c3ad9a6fdc104385b5ff888a77} 
+Webnic\textbackslash{}\+Webnic\+SDK\textbackslash{}\+Services\textbackslash{}\+Domain\+::query\+Domain (\begin{DoxyParamCaption}\item[{string}]{\$domain\+Name}{, }\item[{?string}]{\$rescode}{ = {\ttfamily null}}\end{DoxyParamCaption})}
+
+Queries the status and details of a specific domain.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$domain\+Name} & The domain name to query. \\
+\hline
+string | null & {\em \$rescode} & Optional resource code for filtering results. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The response containing domain details.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+Exception If the request fails. \Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a935d3fa48033cae82ef1dfe12675948c}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}!registerDomain@{registerDomain}}
+\index{registerDomain@{registerDomain}!Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}}
+\doxysubsubsection{\texorpdfstring{registerDomain()}{registerDomain()}}
+{\footnotesize\ttfamily \label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a935d3fa48033cae82ef1dfe12675948c} 
+Webnic\textbackslash{}\+Webnic\+SDK\textbackslash{}\+Services\textbackslash{}\+Domain\+::register\+Domain (\begin{DoxyParamCaption}\item[{array}]{\$registration\+Data}{}\end{DoxyParamCaption})}
+
+Registers a new domain with the provided registration data.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$registration\+Data} & An associative array containing the registration information. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The response indicating the result of the registration operation.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+Exception If the request fails. \Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_aee97c915ddbec5ccfbf7d575fcda4da3}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}!renewDomain@{renewDomain}}
+\index{renewDomain@{renewDomain}!Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}}
+\doxysubsubsection{\texorpdfstring{renewDomain()}{renewDomain()}}
+{\footnotesize\ttfamily \label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_aee97c915ddbec5ccfbf7d575fcda4da3} 
+Webnic\textbackslash{}\+Webnic\+SDK\textbackslash{}\+Services\textbackslash{}\+Domain\+::renew\+Domain (\begin{DoxyParamCaption}\item[{array}]{\$renew\+Data}{}\end{DoxyParamCaption})}
+
+Renews a domain with the provided renewal data.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$renew\+Data} & An associative array containing the renewal information. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The response indicating the result of the renewal operation.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+Exception If the request fails. \Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a63362058e334933b3fc697d589b2e8d1}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}!resendDomainVerificationEmail@{resendDomainVerificationEmail}}
+\index{resendDomainVerificationEmail@{resendDomainVerificationEmail}!Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}}
+\doxysubsubsection{\texorpdfstring{resendDomainVerificationEmail()}{resendDomainVerificationEmail()}}
+{\footnotesize\ttfamily \label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a63362058e334933b3fc697d589b2e8d1} 
+Webnic\textbackslash{}\+Webnic\+SDK\textbackslash{}\+Services\textbackslash{}\+Domain\+::resend\+Domain\+Verification\+Email (\begin{DoxyParamCaption}\item[{string}]{\$domain\+Name}{}\end{DoxyParamCaption})}
+
+Resends the verification email for a specified domain.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$domain\+Name} & The domain name for which to resend the verification email. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The response indicating the result of the operation.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+Exception If the request fails. \Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a343e3e02aed71a2de76b44bc3cb96c9e}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}!resetAuthorizationInformation@{resetAuthorizationInformation}}
+\index{resetAuthorizationInformation@{resetAuthorizationInformation}!Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}}
+\doxysubsubsection{\texorpdfstring{resetAuthorizationInformation()}{resetAuthorizationInformation()}}
+{\footnotesize\ttfamily \label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a343e3e02aed71a2de76b44bc3cb96c9e} 
+Webnic\textbackslash{}\+Webnic\+SDK\textbackslash{}\+Services\textbackslash{}\+Domain\+::reset\+Authorization\+Information (\begin{DoxyParamCaption}\item[{string}]{\$domain\+Name}{}\end{DoxyParamCaption})}
+
+Resets the authorization information for a specified domain.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$domain\+Name} & The domain name for which to reset authorization information. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The response indicating the result of the reset operation.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+Exception If the request fails. \Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_add1eccca0676ec9f1ce90e91d3c55572}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}!restoreDomain@{restoreDomain}}
+\index{restoreDomain@{restoreDomain}!Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}}
+\doxysubsubsection{\texorpdfstring{restoreDomain()}{restoreDomain()}}
+{\footnotesize\ttfamily \label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_add1eccca0676ec9f1ce90e91d3c55572} 
+Webnic\textbackslash{}\+Webnic\+SDK\textbackslash{}\+Services\textbackslash{}\+Domain\+::restore\+Domain (\begin{DoxyParamCaption}\item[{array}]{\$restore\+Data}{}\end{DoxyParamCaption})}
+
+Restores a domain with the provided restore data.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$restore\+Data} & An associative array containing the restoration information. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The response indicating the result of the restoration operation.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+Exception If the request fails. \Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a20ad2f5f5a604f1f9b663fb854e5481c}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}!sendAuthorizationInformation@{sendAuthorizationInformation}}
+\index{sendAuthorizationInformation@{sendAuthorizationInformation}!Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}}
+\doxysubsubsection{\texorpdfstring{sendAuthorizationInformation()}{sendAuthorizationInformation()}}
+{\footnotesize\ttfamily \label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a20ad2f5f5a604f1f9b663fb854e5481c} 
+Webnic\textbackslash{}\+Webnic\+SDK\textbackslash{}\+Services\textbackslash{}\+Domain\+::send\+Authorization\+Information (\begin{DoxyParamCaption}\item[{string}]{\$domain\+Name}{}\end{DoxyParamCaption})}
+
+Sends the authorization information for a specified domain.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$domain\+Name} & The domain name for which to send authorization information. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The response indicating the result of the sending operation.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+Exception If the request fails. \Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a854ede4318298a43eeadce2a97401e70}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}!sendRequest@{sendRequest}}
+\index{sendRequest@{sendRequest}!Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}}
+\doxysubsubsection{\texorpdfstring{sendRequest()}{sendRequest()}}
+{\footnotesize\ttfamily \label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a854ede4318298a43eeadce2a97401e70} 
+Webnic\textbackslash{}\+Webnic\+SDK\textbackslash{}\+Services\textbackslash{}\+Domain\+::send\+Request (\begin{DoxyParamCaption}\item[{string}]{\$method}{, }\item[{string}]{\$endpoint}{, }\item[{array}]{\$query\+Params}{ = {\ttfamily \mbox{[}\mbox{]}}, }\item[{array}]{\$body}{ = {\ttfamily \mbox{[}\mbox{]}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+send\+Request from the specified endpoint using the given HTTP method.
+
+This function handles both query parameters and JSON body for the request.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$method} & The HTTP method to use (GET, POST, PUT, etc.). \\
+\hline
+string & {\em \$endpoint} & The API endpoint to request. \\
+\hline
+array & {\em \$query\+Params} & Optional query parameters for the request. \\
+\hline
+array & {\em \$body} & Optional JSON body for the request. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The response decoded as an associative array.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+Exception If the request fails. \Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a43b13446df3501b2ce1f654f58ac1173}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}!toggleAutoRenew@{toggleAutoRenew}}
+\index{toggleAutoRenew@{toggleAutoRenew}!Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}}
+\doxysubsubsection{\texorpdfstring{toggleAutoRenew()}{toggleAutoRenew()}}
+{\footnotesize\ttfamily \label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a43b13446df3501b2ce1f654f58ac1173} 
+Webnic\textbackslash{}\+Webnic\+SDK\textbackslash{}\+Services\textbackslash{}\+Domain\+::toggle\+Auto\+Renew (\begin{DoxyParamCaption}\item[{bool}]{\$auto\+Renew}{, }\item[{array}]{\$domain\+List}{}\end{DoxyParamCaption})}
+
+Toggles the auto-\/renew feature for a list of domains.
+
+
+\begin{DoxyParams}[1]{Parameters}
+bool & {\em \$auto\+Renew} & Indicates whether to enable or disable auto-\/renew. \\
+\hline
+array & {\em \$domain\+List} & An array of domain names to update. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The response indicating the result of the toggle operation.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+Exception If the request fails. \Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_aa2aa27ed0dbffa2b5f095d21c5c3d068}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}!toggleProxySubscription@{toggleProxySubscription}}
+\index{toggleProxySubscription@{toggleProxySubscription}!Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}}
+\doxysubsubsection{\texorpdfstring{toggleProxySubscription()}{toggleProxySubscription()}}
+{\footnotesize\ttfamily \label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_aa2aa27ed0dbffa2b5f095d21c5c3d068} 
+Webnic\textbackslash{}\+Webnic\+SDK\textbackslash{}\+Services\textbackslash{}\+Domain\+::toggle\+Proxy\+Subscription (\begin{DoxyParamCaption}\item[{string}]{\$action}{, }\item[{string}]{\$domain\+Name}{}\end{DoxyParamCaption})}
+
+Toggles subscription to the proxy service for a specified domain.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$action} & The action to perform\+: "{}subscribe"{} or "{}unsubscribe"{}. \\
+\hline
+string & {\em \$domain\+Name} & The domain name for which to toggle the proxy subscription. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The response indicating the result of the operation.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+Exception If the request fails. \Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_ab0348c464f6f362fb872d46bf59bf493}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}!toggleWhoisPrivacy@{toggleWhoisPrivacy}}
+\index{toggleWhoisPrivacy@{toggleWhoisPrivacy}!Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}}
+\doxysubsubsection{\texorpdfstring{toggleWhoisPrivacy()}{toggleWhoisPrivacy()}}
+{\footnotesize\ttfamily \label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_ab0348c464f6f362fb872d46bf59bf493} 
+Webnic\textbackslash{}\+Webnic\+SDK\textbackslash{}\+Services\textbackslash{}\+Domain\+::toggle\+Whois\+Privacy (\begin{DoxyParamCaption}\item[{bool}]{\$active}{, }\item[{string}]{\$domain\+Name}{}\end{DoxyParamCaption})}
+
+Toggles the Whois privacy feature for a specified domain.
+
+
+\begin{DoxyParams}[1]{Parameters}
+bool & {\em \$active} & Indicates whether to enable (true) or disable (false) Whois privacy. \\
+\hline
+string & {\em \$domain\+Name} & The domain name for which to toggle the Whois privacy. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The response indicating the result of the operation.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+Exception If the request fails. \Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a8ad3822d539669e15863194ff85d2a42}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}!updateDomainNameserver@{updateDomainNameserver}}
+\index{updateDomainNameserver@{updateDomainNameserver}!Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}}
+\doxysubsubsection{\texorpdfstring{updateDomainNameserver()}{updateDomainNameserver()}}
+{\footnotesize\ttfamily \label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a8ad3822d539669e15863194ff85d2a42} 
+Webnic\textbackslash{}\+Webnic\+SDK\textbackslash{}\+Services\textbackslash{}\+Domain\+::update\+Domain\+Nameserver (\begin{DoxyParamCaption}\item[{string}]{\$domain\+Name}{, }\item[{array}]{\$nameservers}{}\end{DoxyParamCaption})}
+
+Updates the nameservers for a specific domain.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$domain\+Name} & The domain name to update. \\
+\hline
+array & {\em \$nameservers} & An array of nameserver addresses. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The response indicating the result of the update operation.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+Exception If the request fails. \Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a7f05947aceaee1a8a17ebcb691041dda}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}!updateDomainStatus@{updateDomainStatus}}
+\index{updateDomainStatus@{updateDomainStatus}!Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}}
+\doxysubsubsection{\texorpdfstring{updateDomainStatus()}{updateDomainStatus()}}
+{\footnotesize\ttfamily \label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a7f05947aceaee1a8a17ebcb691041dda} 
+Webnic\textbackslash{}\+Webnic\+SDK\textbackslash{}\+Services\textbackslash{}\+Domain\+::update\+Domain\+Status (\begin{DoxyParamCaption}\item[{string}]{\$domain\+Name}{, }\item[{string}]{\$status}{}\end{DoxyParamCaption})}
+
+Updates the status of a specific domain.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$domain\+Name} & The domain name to update. \\
+\hline
+string & {\em \$status} & The new status for the domain. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The response indicating the result of the update operation.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+Exception If the request fails. \Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a30c1251f34b05050be0c954607b6f15e}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}!uploadVerificationDocument@{uploadVerificationDocument}}
+\index{uploadVerificationDocument@{uploadVerificationDocument}!Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Domain}}
+\doxysubsubsection{\texorpdfstring{uploadVerificationDocument()}{uploadVerificationDocument()}}
+{\footnotesize\ttfamily \label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_domain_a30c1251f34b05050be0c954607b6f15e} 
+Webnic\textbackslash{}\+Webnic\+SDK\textbackslash{}\+Services\textbackslash{}\+Domain\+::upload\+Verification\+Document (\begin{DoxyParamCaption}\item[{int}]{\$id}{, }\item[{array}]{\$document}{}\end{DoxyParamCaption})}
+
+Uploads a verification document for a specified domain.
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$id} & The ID associated with the domain for which the document is being uploaded. \\
+\hline
+array & {\em \$document} & An associative array containing document type and file path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The response indicating the result of the upload operation.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+Exception If the request fails. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Services/Domain.\+php\end{DoxyCompactItemize}

@@ -1,0 +1,169 @@
+\doxysection{Webnic\textbackslash{}Webnic\+SDK\textbackslash{}Services\textbackslash{}Contact Class Reference}
+\hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_contact}{}\label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_contact}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Contact@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Contact}}
+Inheritance diagram for Webnic\textbackslash{}Webnic\+SDK\textbackslash{}Services\textbackslash{}Contact\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{db/d44/class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_contact}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_contact_a0c37b98349cfe72c58b9c12c59a0f2b3}\label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_contact_a0c37b98349cfe72c58b9c12c59a0f2b3} 
+{\bfseries \+\_\+\+\_\+construct} (string \$client\+Id, string \$client\+Secret, string \$token\+Endpoint)
+\item 
+\mbox{\hyperlink{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_contact_a48029f5287680076e62fa441f5f29c12}{create\+Contact}} (array \$contact\+Data)
+\item 
+\mbox{\hyperlink{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_contact_af51418c01d31decf5e9303808193d498}{create\+Contact\+At\+Registry}} (string \$ext, string \$contact\+Type, string \$contact\+Id, string \$action)
+\item 
+\mbox{\hyperlink{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_contact_a51f8aedcd254444b44bb748a68b334bb}{query\+Contact\+Info}} (array \$contact\+Data)
+\item 
+\mbox{\hyperlink{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_contact_ae6dd8a2c89d2954f4f128fa5a04bc866}{modify\+Contact\+At\+Registry}} (array \$modify\+Contact\+Data)
+\item 
+\mbox{\hyperlink{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_contact_a036196188625d31221d288fab463ee6b}{modify\+Contact}} (array \$modify\+Contact\+Data)
+\item 
+\mbox{\hyperlink{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_contact_a6071b71c62507f47bd3c572f200e6b19}{replace\+Contact}} (array \$replace\+Contact\+Data)
+\item 
+\mbox{\hyperlink{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_contact_ad5c3f9d6e08ce26a962e73d7cd36e9e9}{delete\+Contact}} (string \$contact\+Id)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_contact_aca146d9d9d192074bc81ceac3927fc4f}\label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_contact_aca146d9d9d192074bc81ceac3927fc4f} 
+{\bfseries build\+Url} (string \$endpoint)
+\item 
+\Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_contact_add843540f19a3043d2a78184ce2bf51b}\label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_contact_add843540f19a3043d2a78184ce2bf51b} 
+{\bfseries send\+Request} (string \$method, string \$endpoint, array \$query\+Params=\mbox{[}$\,$\mbox{]}, array \$body=\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_contact_ac3635be7c2beccddf82c50d19bbe1e47}\label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_contact_ac3635be7c2beccddf82c50d19bbe1e47} 
+string {\bfseries \$service\+Url} = \textquotesingle{}/domain/v2/contact\textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_contact_a48029f5287680076e62fa441f5f29c12}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Contact@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Contact}!createContact@{createContact}}
+\index{createContact@{createContact}!Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Contact@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Contact}}
+\doxysubsubsection{\texorpdfstring{createContact()}{createContact()}}
+{\footnotesize\ttfamily \label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_contact_a48029f5287680076e62fa441f5f29c12} 
+Webnic\textbackslash{}\+Webnic\+SDK\textbackslash{}\+Services\textbackslash{}\+Contact\+::create\+Contact (\begin{DoxyParamCaption}\item[{array}]{\$contact\+Data}{}\end{DoxyParamCaption})}
+
+Creates a new contact with the provided data.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$contact\+Data} & An associative array containing the contact information. Example structure\+: \mbox{[} "{}registrant"{} =\texorpdfstring{$>$}{>} \mbox{[}...\mbox{]}, "{}administrator"{} =\texorpdfstring{$>$}{>} \mbox{[}...\mbox{]}, "{}billing"{} =\texorpdfstring{$>$}{>} \mbox{[}...\mbox{]}, "{}technical"{} =\texorpdfstring{$>$}{>} \mbox{[}...\mbox{]} \mbox{]} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The API response as an associative array. 
+\end{DoxyReturn}
+\Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_contact_af51418c01d31decf5e9303808193d498}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Contact@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Contact}!createContactAtRegistry@{createContactAtRegistry}}
+\index{createContactAtRegistry@{createContactAtRegistry}!Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Contact@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Contact}}
+\doxysubsubsection{\texorpdfstring{createContactAtRegistry()}{createContactAtRegistry()}}
+{\footnotesize\ttfamily \label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_contact_af51418c01d31decf5e9303808193d498} 
+Webnic\textbackslash{}\+Webnic\+SDK\textbackslash{}\+Services\textbackslash{}\+Contact\+::create\+Contact\+At\+Registry (\begin{DoxyParamCaption}\item[{string}]{\$ext}{, }\item[{string}]{\$contact\+Type}{, }\item[{string}]{\$contact\+Id}{, }\item[{string}]{\$action}{}\end{DoxyParamCaption})}
+
+Creates a contact at the registry level for a specific extension and type.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$ext} & The domain extension (e.\+g., "{}com"{}, "{}net"{}). \\
+\hline
+string & {\em \$contact\+Type} & The type of contact (e.\+g., "{}registrant"{}, "{}admin"{}). \\
+\hline
+string & {\em \$contact\+Id} & The contact ID to be created or modified. \\
+\hline
+string & {\em \$action} & The action to perform (e.\+g., "{}create"{}, "{}modify"{}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The API response as an associative array. 
+\end{DoxyReturn}
+\Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_contact_ad5c3f9d6e08ce26a962e73d7cd36e9e9}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Contact@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Contact}!deleteContact@{deleteContact}}
+\index{deleteContact@{deleteContact}!Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Contact@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Contact}}
+\doxysubsubsection{\texorpdfstring{deleteContact()}{deleteContact()}}
+{\footnotesize\ttfamily \label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_contact_ad5c3f9d6e08ce26a962e73d7cd36e9e9} 
+Webnic\textbackslash{}\+Webnic\+SDK\textbackslash{}\+Services\textbackslash{}\+Contact\+::delete\+Contact (\begin{DoxyParamCaption}\item[{string}]{\$contact\+Id}{}\end{DoxyParamCaption})}
+
+Deletes a contact by its ID.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$contact\+Id} & The ID of the contact to delete. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The API response confirming the deletion. 
+\end{DoxyReturn}
+\Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_contact_a036196188625d31221d288fab463ee6b}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Contact@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Contact}!modifyContact@{modifyContact}}
+\index{modifyContact@{modifyContact}!Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Contact@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Contact}}
+\doxysubsubsection{\texorpdfstring{modifyContact()}{modifyContact()}}
+{\footnotesize\ttfamily \label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_contact_a036196188625d31221d288fab463ee6b} 
+Webnic\textbackslash{}\+Webnic\+SDK\textbackslash{}\+Services\textbackslash{}\+Contact\+::modify\+Contact (\begin{DoxyParamCaption}\item[{array}]{\$modify\+Contact\+Data}{}\end{DoxyParamCaption})}
+
+Modifies an existing contact\textquotesingle{}s information.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$modify\+Contact\+Data} & An associative array containing\+: \mbox{[} "{}contact\+Id"{} =\texorpdfstring{$>$}{>} "{}\+WNC969003\+T"{}, "{}details"{} =\texorpdfstring{$>$}{>} \mbox{[} "{}category"{} =\texorpdfstring{$>$}{>} "{}individual"{}, "{}company"{} =\texorpdfstring{$>$}{>} "{}qinetics.\+net"{}, "{}first\+Name"{} =\texorpdfstring{$>$}{>} "{}\+John"{}, "{}last\+Name"{} =\texorpdfstring{$>$}{>} "{}\+Smith"{}, "{}address1"{} =\texorpdfstring{$>$}{>} "{}\+Technology Park Malaysia"{}, "{}city"{} =\texorpdfstring{$>$}{>} "{}\+Kuala Lumpur"{}, "{}state"{} =\texorpdfstring{$>$}{>} "{}\+Kuala Lumpur"{}, "{}country\+Code"{} =\texorpdfstring{$>$}{>} "{}\+MY"{}, "{}zip"{} =\texorpdfstring{$>$}{>} "{}98000"{}, "{}phone\+Number"{} =\texorpdfstring{$>$}{>} "{}+60.\+123456789"{}, "{}email"{} =\texorpdfstring{$>$}{>} "{}john.\+smith@gmail.\+com"{} \mbox{]} \mbox{]} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The API response confirming the modification. 
+\end{DoxyReturn}
+\Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_contact_ae6dd8a2c89d2954f4f128fa5a04bc866}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Contact@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Contact}!modifyContactAtRegistry@{modifyContactAtRegistry}}
+\index{modifyContactAtRegistry@{modifyContactAtRegistry}!Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Contact@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Contact}}
+\doxysubsubsection{\texorpdfstring{modifyContactAtRegistry()}{modifyContactAtRegistry()}}
+{\footnotesize\ttfamily \label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_contact_ae6dd8a2c89d2954f4f128fa5a04bc866} 
+Webnic\textbackslash{}\+Webnic\+SDK\textbackslash{}\+Services\textbackslash{}\+Contact\+::modify\+Contact\+At\+Registry (\begin{DoxyParamCaption}\item[{array}]{\$modify\+Contact\+Data}{}\end{DoxyParamCaption})}
+
+Modifies a contact\textquotesingle{}s information at the registry level.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$modify\+Contact\+Data} & An associative array containing\+: \mbox{[} "{}contact\+Id"{} =\texorpdfstring{$>$}{>} "{}\+WNC969003\+T"{}, "{}details"{} =\texorpdfstring{$>$}{>} \mbox{[} "{}category"{} =\texorpdfstring{$>$}{>} "{}individual"{}, "{}company"{} =\texorpdfstring{$>$}{>} "{}qinetics.\+net"{}, "{}first\+Name"{} =\texorpdfstring{$>$}{>} "{}\+John"{}, "{}last\+Name"{} =\texorpdfstring{$>$}{>} "{}\+Smith"{}, "{}address1"{} =\texorpdfstring{$>$}{>} "{}\+Technology Park Malaysia"{}, "{}city"{} =\texorpdfstring{$>$}{>} "{}\+Kuala Lumpur"{}, "{}state"{} =\texorpdfstring{$>$}{>} "{}\+Kuala Lumpur"{}, "{}country\+Code"{} =\texorpdfstring{$>$}{>} "{}\+MY"{}, "{}zip"{} =\texorpdfstring{$>$}{>} "{}98000"{}, "{}phone\+Number"{} =\texorpdfstring{$>$}{>} "{}+60.\+123456789"{}, "{}email"{} =\texorpdfstring{$>$}{>} "{}john.\+smith@gmail.\+com"{} \mbox{]} \mbox{]} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The API response confirming the modification. 
+\end{DoxyReturn}
+\Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_contact_a51f8aedcd254444b44bb748a68b334bb}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Contact@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Contact}!queryContactInfo@{queryContactInfo}}
+\index{queryContactInfo@{queryContactInfo}!Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Contact@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Contact}}
+\doxysubsubsection{\texorpdfstring{queryContactInfo()}{queryContactInfo()}}
+{\footnotesize\ttfamily \label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_contact_a51f8aedcd254444b44bb748a68b334bb} 
+Webnic\textbackslash{}\+Webnic\+SDK\textbackslash{}\+Services\textbackslash{}\+Contact\+::query\+Contact\+Info (\begin{DoxyParamCaption}\item[{array}]{\$contact\+Data}{}\end{DoxyParamCaption})}
+
+Queries the contact information based on the provided contact data.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$contact\+Data} & An associative array containing contact identification data for the query. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The response data which may include\+: \mbox{[} "{}contact\+Id"{} =\texorpdfstring{$>$}{>} "{}\+WNC969003\+T"{}, // string\+: Contact ID "{}resid"{} =\texorpdfstring{$>$}{>} 123456, // number\+: Reseller ID "{}details"{} =\texorpdfstring{$>$}{>} \mbox{[}\mbox{]}, // object\+: Domain\textquotesingle{}s detail contact object data "{}category"{} =\texorpdfstring{$>$}{>} "{}individual"{}, // string\+: Contact category "{}company"{} =\texorpdfstring{$>$}{>} "{}qinetics.\+net"{}, // string\+: Company name "{}first\+Name"{} =\texorpdfstring{$>$}{>} "{}\+John"{}, // string\+: First name "{}last\+Name"{} =\texorpdfstring{$>$}{>} "{}\+Smith"{}, // string\+: Last name "{}address1"{} =\texorpdfstring{$>$}{>} "{}\+Technology Park Malaysia"{}, // string\+: Address line 1 "{}address2"{} =\texorpdfstring{$>$}{>} "{}"{}, // string\+: Address line 2 (if any) "{}city"{} =\texorpdfstring{$>$}{>} "{}\+Kuala Lumpur"{}, // string\+: City "{}state"{} =\texorpdfstring{$>$}{>} "{}\+Kuala Lumpur"{}, // string\+: State "{}country\+Code"{} =\texorpdfstring{$>$}{>} "{}\+MY"{}, // string\+: Country code "{}zip"{} =\texorpdfstring{$>$}{>} "{}98000"{}, // string\+: Zip code "{}phone\+Number"{} =\texorpdfstring{$>$}{>} "{}+60.\+123456789"{}, // string\+: Phone number in +0.\+0 format "{}fax\+Number"{} =\texorpdfstring{$>$}{>} "{}+60.\+987654321"{}, // string\+: Fax number (if any) "{}email"{} =\texorpdfstring{$>$}{>} "{}john.\+smith@gmail.\+com"{}, // string\+: Email address "{}contact\+Type"{} =\texorpdfstring{$>$}{>} "{}registrant"{}, // string\+: Contact type (e.\+g., registrant, admin, etc.) "{}dtcreate"{} =\texorpdfstring{$>$}{>} "{}2024-\/09-\/25\+T12\+:34\+:56\+Z"{}, // string\+: Date and time when the contact was created "{}id"{} =\texorpdfstring{$>$}{>} 987654 // number\+: Contact record ID \mbox{]} 
+\end{DoxyReturn}
+\Hypertarget{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_contact_a6071b71c62507f47bd3c572f200e6b19}\index{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Contact@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Contact}!replaceContact@{replaceContact}}
+\index{replaceContact@{replaceContact}!Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Contact@{Webnic\textbackslash{}WebnicSDK\textbackslash{}Services\textbackslash{}Contact}}
+\doxysubsubsection{\texorpdfstring{replaceContact()}{replaceContact()}}
+{\footnotesize\ttfamily \label{class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_contact_a6071b71c62507f47bd3c572f200e6b19} 
+Webnic\textbackslash{}\+Webnic\+SDK\textbackslash{}\+Services\textbackslash{}\+Contact\+::replace\+Contact (\begin{DoxyParamCaption}\item[{array}]{\$replace\+Contact\+Data}{}\end{DoxyParamCaption})}
+
+Replaces the contact details across multiple domains.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$replace\+Contact\+Data} & An associative array containing\+: \mbox{[} "{}domain\+List"{} =\texorpdfstring{$>$}{>} \mbox{[} "{}jimtestrestreg15.\+com"{}, "{}jimtestrestreg16.\+com"{} \mbox{]}, "{}contact\+Type\+Map"{} =\texorpdfstring{$>$}{>} \mbox{[} "{}registrant"{} =\texorpdfstring{$>$}{>} "{}\+WNC968542\+T"{}, "{}administrator"{} =\texorpdfstring{$>$}{>} "{}\+WNC968543\+T"{}, "{}technical"{} =\texorpdfstring{$>$}{>} "{}\+WNC968544\+T"{}, "{}billing"{} =\texorpdfstring{$>$}{>} "{}\+WNC968545\+T"{} \mbox{]} \mbox{]} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array The API response confirming the replacement. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Services/Contact.\+php\end{DoxyCompactItemize}
