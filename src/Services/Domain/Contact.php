@@ -113,7 +113,119 @@ class Contact extends ApiConnector
      * ];
      * $response = $webnicSDK->contact->createContact($postField);
      * ```
+     *
+     * ### Required Custom Fields for Common TLDs
+     *
+     * #### Custom Fields (Organization)
+     * | Unique Code | Explanation |
+     * |-------------|-------------|
+     * | organizationType | Organization type. Allowed values: OTA000005, OTA000003, OTA000025, OTA000006, OTA000012, OTA000032 |
+     * | organizationRegistrationNumber | Organization registration number |
      * 
+     * #### Custom Fields (Individual)
+     * | Type | Description |
+     * |------|-------------|
+     * | identificationNumber | Identification number |
+     * | dateOfBirth | (optional) Date of birth |
+     * | gender | (optional) Gender. Allowed values: MALE, FEMALE |
+     *
+     * ### Required Custom Fields for Specific TLDs
+     *
+     * #### For .com.cn, .gov.cn, .net.cn, .org.cn, .cn, .中国, .公司, .网络
+     * 
+     * ##### Custom Fields (Organization)
+     * | Unique Code | Explanation |
+     * |-------------|-------------|
+     * | organizationType | Organization type. Allowed values: ORG, YYZZ, TYDM, BDDM, JDDWFW, SYDWFR, SHTTFR, ZJCS, MBFQY, JJHFR, LSZY, WGZHWH, WLCZJG, SFJD, JWJG, SHFWJG, MBXXBX, YLJGZY, GZJGZY, BJWSXX |
+     * | organizationRegistrationNumber | Organization registration number |
+     * 
+     * ##### Custom Fields (Individual)
+     * | Unique Code | Explanation |
+     * |-------------|-------------|
+     * | identificationNumber | Identification number |
+     * | individualType | Legal representative document type. Allowed values: SFZ, HZ, GAJMTX, TWJMTX, WJLSFZ, GAJZZ, TWJZZ, JGZ, QT |
+     *
+     * #### For .us
+     * 
+     * ##### Custom Fields (Organization)
+     * | Unique Code | Explanation |
+     * |-------------|-------------|
+     * | organizationType | Organization type. Allowed values: OTA000005, OTA000003, OTA000025, OTA000006, OTA000012, OTA000032 |
+     * | organizationRegistrationNumber | Organization registration number |
+     * | nexus | Nexus type. Allowed values: C12, C32, C31, C11, C21 |
+     *
+     * #### For .vn
+     * 
+     * ##### Custom Fields (Individual)
+     * | Unique Code | Explanation |
+     * |-------------|-------------|
+     * | identificationNumber | Identification number |
+     * | organizationRegistrationNumber | Organization registration number |
+     * | dateOfBirth | (optional) Date of birth |
+     * | gender | (optional) Gender. Allowed values: MALE, FEMALE |
+     *
+     * #### For .hk, .com.hk, .my
+     * 
+     * ##### Custom Fields (Individual)
+     * | Unique Code | Explanation |
+     * |-------------|-------------|
+     * | identificationNumber | Identification number |
+     * | dateOfBirth | Date of birth |
+     * | gender | (optional) Gender. Allowed values: MALE, FEMALE |
+     *
+     * ### Appendix: Unique Code Explanation
+     *
+     * #### Unique Code (Organization Type)
+     * | Unique Code | Explanation |
+     * |-------------|-------------|
+     * | OTA000005 | Business |
+     * | OTA000003 | Company |
+     * | OTA000025 | Non Profit Organization |
+     * | OTA000006 | Education |
+     * | OTA000012 | Legal Professional |
+     * | OTA000032 | Others |
+     * | ORG | Organization Code Certificate |
+     * | YYZZ | Business License |
+     * | TYDM | Certificate for Uniform Social Credit Code |
+     * | BDDM | Military Code Designation |
+     * | JDDWFW | Military Paid External Service License |
+     * | SYDWFR | Public Institution Legal Person Certificate |
+     * | SHTTFR | Social Organization Legal Person Registration Certificate |
+     * | ZJCS | Religion Activity Site Registration Certificate |
+     * | MBFQY | Private Non-Enterprise Entity Registration Certificate |
+     * | JJHFR | Fund Legal Person Registration Certificate |
+     * | LSZY | Practicing License of Law Firm |
+     * | WGZHWH | Registration Certificate of Foreign Cultural Center in China |
+     * | WLCZJG | Resident Representative Office of Tourism Departments of Foreign Government Approval Registration Certificate |
+     * | SFJD | Judicial Expertise License |
+     * | JWJG | Overseas Organization Certificate |
+     * | SHFWJG | Social Service Agency Registration Certificate |
+     * | MBXXBX | Private School Permit |
+     * | YLJGZY | Medical Institution Practicing License |
+     * | GZJGZY | Notary Organization Practicing License |
+     * | BJWSXX | Beijing School for Children of Foreign Embassy Staff in China Permit |
+     * 
+     * #### Unique Code (Individual Type)
+     * | Unique Code | Explanation |
+     * |-------------|-------------|
+     * | SFZ | ID |
+     * | HZ | Passport |
+     * | GAJMTX | Exit-Entry Permit for Travelling to and from Hong Kong and Macao |
+     * | TWJMTX | Travel passes for Taiwan Residents to Enter or Leave the Mainland |
+     * | WJLSFZ | Foreign Permanent Resident ID Card |
+     * | GAJZZ | Residence permit for Hong Kong and Macao residents |
+     * | TWJZZ | Residence permit for Taiwan residents |
+     * | JGZ | Medical Institution Practicing License |
+     * | QT | Others |
+     * 
+     * #### Unique Code (Nexus)
+     * | Unique Code | Explanation |
+     * |-------------|-------------|
+     * | C12 | A permanent resident of the United States or any U.S. territory/possession |
+     * | C32 | An entity that has an office or facility in the U.S |
+     * | C31 | An entity that regularly engages in lawful activities (sales of goods or services or other business) |
+     * | C11 | Citizen or National of the United States |
+     * | C21 | Incorporated within one of the U.S. states or U.S. territory |
      */
     public function createContact(array $postField): array
     {

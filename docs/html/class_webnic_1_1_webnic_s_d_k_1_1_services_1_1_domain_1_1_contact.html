@@ -261,7 +261,199 @@ Public Member Functions</h2></td></tr>
 <div class="line">    ]</div>
 <div class="line">];</div>
 <div class="line">$response = $webnicSDK-&gt;contact-&gt;createContact($postField);</div>
-</div><!-- fragment --> 
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md0"></a>
+Required Custom Fields for Common TLDs</h3>
+<h4><a class="anchor" id="autotoc_md1"></a>
+Custom Fields (Organization)</h4>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Unique Code   </th><th class="markdownTableHeadNone">Explanation    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">organizationType   </td><td class="markdownTableBodyNone">Organization type. Allowed values: OTA000005, OTA000003, OTA000025, OTA000006, OTA000012, OTA000032    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">organizationRegistrationNumber   </td><td class="markdownTableBodyNone">Organization registration number   </td></tr>
+</table>
+<h4><a class="anchor" id="autotoc_md2"></a>
+Custom Fields (Individual)</h4>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Description    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">identificationNumber   </td><td class="markdownTableBodyNone">Identification number    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">dateOfBirth   </td><td class="markdownTableBodyNone">(optional) Date of birth    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">gender   </td><td class="markdownTableBodyNone">(optional) Gender. Allowed values: MALE, FEMALE   </td></tr>
+</table>
+<h3><a class="anchor" id="autotoc_md3"></a>
+Required Custom Fields for Specific TLDs</h3>
+<h4><a class="anchor" id="autotoc_md4"></a>
+For .com.cn, .gov.cn, .net.cn, .org.cn, .cn, .中国, .公司, .网络</h4>
+<h5><a class="anchor" id="autotoc_md5"></a>
+Custom Fields (Organization)</h5>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Unique Code   </th><th class="markdownTableHeadNone">Explanation    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">organizationType   </td><td class="markdownTableBodyNone">Organization type. Allowed values: ORG, YYZZ, TYDM, BDDM, JDDWFW, SYDWFR, SHTTFR, ZJCS, MBFQY, JJHFR, LSZY, WGZHWH, WLCZJG, SFJD, JWJG, SHFWJG, MBXXBX, YLJGZY, GZJGZY, BJWSXX    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">organizationRegistrationNumber   </td><td class="markdownTableBodyNone">Organization registration number   </td></tr>
+</table>
+<h5><a class="anchor" id="autotoc_md6"></a>
+Custom Fields (Individual)</h5>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Unique Code   </th><th class="markdownTableHeadNone">Explanation    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">identificationNumber   </td><td class="markdownTableBodyNone">Identification number    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">individualType   </td><td class="markdownTableBodyNone">Legal representative document type. Allowed values: SFZ, HZ, GAJMTX, TWJMTX, WJLSFZ, GAJZZ, TWJZZ, JGZ, QT   </td></tr>
+</table>
+<h4><a class="anchor" id="autotoc_md7"></a>
+For .us</h4>
+<h5><a class="anchor" id="autotoc_md8"></a>
+Custom Fields (Organization)</h5>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Unique Code   </th><th class="markdownTableHeadNone">Explanation    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">organizationType   </td><td class="markdownTableBodyNone">Organization type. Allowed values: OTA000005, OTA000003, OTA000025, OTA000006, OTA000012, OTA000032    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">organizationRegistrationNumber   </td><td class="markdownTableBodyNone">Organization registration number    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">nexus   </td><td class="markdownTableBodyNone">Nexus type. Allowed values: C12, C32, C31, C11, C21   </td></tr>
+</table>
+<h4><a class="anchor" id="autotoc_md9"></a>
+For .vn</h4>
+<h5><a class="anchor" id="autotoc_md10"></a>
+Custom Fields (Individual)</h5>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Unique Code   </th><th class="markdownTableHeadNone">Explanation    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">identificationNumber   </td><td class="markdownTableBodyNone">Identification number    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">organizationRegistrationNumber   </td><td class="markdownTableBodyNone">Organization registration number    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">dateOfBirth   </td><td class="markdownTableBodyNone">(optional) Date of birth    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">gender   </td><td class="markdownTableBodyNone">(optional) Gender. Allowed values: MALE, FEMALE   </td></tr>
+</table>
+<h4><a class="anchor" id="autotoc_md11"></a>
+For .hk, .com.hk, .my</h4>
+<h5><a class="anchor" id="autotoc_md12"></a>
+Custom Fields (Individual)</h5>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Unique Code   </th><th class="markdownTableHeadNone">Explanation    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">identificationNumber   </td><td class="markdownTableBodyNone">Identification number    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">dateOfBirth   </td><td class="markdownTableBodyNone">Date of birth    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">gender   </td><td class="markdownTableBodyNone">(optional) Gender. Allowed values: MALE, FEMALE   </td></tr>
+</table>
+<h3><a class="anchor" id="autotoc_md13"></a>
+Appendix: Unique Code Explanation</h3>
+<h4><a class="anchor" id="autotoc_md14"></a>
+Unique Code (Organization Type)</h4>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Unique Code   </th><th class="markdownTableHeadNone">Explanation    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">OTA000005   </td><td class="markdownTableBodyNone">Business    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">OTA000003   </td><td class="markdownTableBodyNone">Company    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">OTA000025   </td><td class="markdownTableBodyNone">Non Profit Organization    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">OTA000006   </td><td class="markdownTableBodyNone">Education    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">OTA000012   </td><td class="markdownTableBodyNone">Legal Professional    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">OTA000032   </td><td class="markdownTableBodyNone">Others    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">ORG   </td><td class="markdownTableBodyNone">Organization Code Certificate    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">YYZZ   </td><td class="markdownTableBodyNone">Business License    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">TYDM   </td><td class="markdownTableBodyNone">Certificate for Uniform Social Credit Code    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">BDDM   </td><td class="markdownTableBodyNone">Military Code Designation    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">JDDWFW   </td><td class="markdownTableBodyNone">Military Paid External Service License    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">SYDWFR   </td><td class="markdownTableBodyNone">Public Institution Legal Person Certificate    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">SHTTFR   </td><td class="markdownTableBodyNone">Social Organization Legal Person Registration Certificate    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">ZJCS   </td><td class="markdownTableBodyNone">Religion Activity Site Registration Certificate    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">MBFQY   </td><td class="markdownTableBodyNone">Private Non-Enterprise Entity Registration Certificate    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">JJHFR   </td><td class="markdownTableBodyNone">Fund Legal Person Registration Certificate    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">LSZY   </td><td class="markdownTableBodyNone">Practicing License of Law Firm    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">WGZHWH   </td><td class="markdownTableBodyNone">Registration Certificate of Foreign Cultural Center in China    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">WLCZJG   </td><td class="markdownTableBodyNone">Resident Representative Office of Tourism Departments of Foreign Government Approval Registration Certificate    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">SFJD   </td><td class="markdownTableBodyNone">Judicial Expertise License    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">JWJG   </td><td class="markdownTableBodyNone">Overseas Organization Certificate    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">SHFWJG   </td><td class="markdownTableBodyNone">Social Service Agency Registration Certificate    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">MBXXBX   </td><td class="markdownTableBodyNone">Private School Permit    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">YLJGZY   </td><td class="markdownTableBodyNone">Medical Institution Practicing License    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">GZJGZY   </td><td class="markdownTableBodyNone">Notary Organization Practicing License    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">BJWSXX   </td><td class="markdownTableBodyNone">Beijing School for Children of Foreign Embassy Staff in China Permit   </td></tr>
+</table>
+<h4><a class="anchor" id="autotoc_md15"></a>
+Unique Code (Individual Type)</h4>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Unique Code   </th><th class="markdownTableHeadNone">Explanation    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">SFZ   </td><td class="markdownTableBodyNone">ID    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">HZ   </td><td class="markdownTableBodyNone">Passport    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">GAJMTX   </td><td class="markdownTableBodyNone">Exit-Entry Permit for Travelling to and from Hong Kong and Macao    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">TWJMTX   </td><td class="markdownTableBodyNone">Travel passes for Taiwan Residents to Enter or Leave the Mainland    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">WJLSFZ   </td><td class="markdownTableBodyNone">Foreign Permanent Resident ID Card    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">GAJZZ   </td><td class="markdownTableBodyNone">Residence permit for Hong Kong and Macao residents    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">TWJZZ   </td><td class="markdownTableBodyNone">Residence permit for Taiwan residents    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">JGZ   </td><td class="markdownTableBodyNone">Medical Institution Practicing License    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">QT   </td><td class="markdownTableBodyNone">Others   </td></tr>
+</table>
+<h4><a class="anchor" id="autotoc_md16"></a>
+Unique Code (Nexus)</h4>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Unique Code   </th><th class="markdownTableHeadNone">Explanation    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">C12   </td><td class="markdownTableBodyNone">A permanent resident of the United States or any U.S. territory/possession    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">C32   </td><td class="markdownTableBodyNone">An entity that has an office or facility in the U.S    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">C31   </td><td class="markdownTableBodyNone">An entity that regularly engages in lawful activities (sales of goods or services or other business)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">C11   </td><td class="markdownTableBodyNone">Citizen or National of the United States    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">C21   </td><td class="markdownTableBodyNone">Incorporated within one of the U.S. states or U.S. territory   </td></tr>
+</table>
+
 </div>
 </div>
 <a id="aebbde92f98a442771be78965e3f20d68" name="aebbde92f98a442771be78965e3f20d68"></a>
