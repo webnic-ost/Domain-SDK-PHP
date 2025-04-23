@@ -5,6 +5,7 @@ namespace Webnic\WebnicSDK\Core;
 
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Promise\Utils;
 
 class ApiConnector
 {
@@ -38,8 +39,22 @@ class ApiConnector
 
     protected function retrieveAccessToken(): string
     {
-        if ($this->apiKey !== null && $this->isTokenValid()) {
-            return $this->apiKey; // Return existing valid token
+        // if ($this->apiKey !== null && $this->isTokenValid()) {
+        //     return $this->apiKey; // Return existing valid token
+        // }
+
+        $filePath = __DIR__ . '/webnic_token.json';
+
+        // Ensure the file exists before reading
+        if (!file_exists($filePath)) {
+            file_put_contents($filePath, json_encode([])); // Create an empty JSON file
+        }
+        // Read token from file if it exists
+        $tokenData = json_decode(file_get_contents($filePath), true);
+        if (isset($tokenData['token'], $tokenData['expires_at'])) {
+            if (new \DateTime($tokenData['expires_at']) > new \DateTime()) {
+                return $tokenData['token'];
+            }
         }
 
         try {
@@ -55,9 +70,16 @@ class ApiConnector
 
             $data = json_decode($response->getBody()->getContents(), true);
             if (isset($data['data']['access_token'])) {
-                $this->apiKey = $data['data']['access_token'];
-                $this->tokenExpiration = new \DateTime('+40 minutes'); // Set token expiration time to 40 minutes
-                return $this->apiKey;
+                $accessToken = $data['data']['access_token'];
+                $tokenExpiration = (new \DateTime('+50 minutes'))->format('Y-m-d H:i:s');
+
+                // Save token to file (overwrite existing or create new file)
+                file_put_contents($filePath, json_encode([
+                    'token' => $accessToken,
+                    'expires_at' => $tokenExpiration
+                ], JSON_PRETTY_PRINT));
+
+                return $accessToken;
             } else {
                 throw new \Exception('No access token received');
             }
@@ -142,5 +164,56 @@ class ApiConnector
         } catch (GuzzleException $e) {
             throw new \Exception('Request failed: ' . $e->getMessage());
         }
+    }
+
+    /**
+     * Send multiple asynchronous API requests.
+     *
+     * @param array $requests Array of requests with 'method', 'endpoint', 'queryParams', 'body'.
+     * @return array Associative array with responses.
+     */
+    public function asyncRequests(array $requests): array
+    {
+        $promises = [];
+
+        foreach ($requests as $key => $request) {
+            $options = [];
+
+            if (!empty($request['queryParams'])) {
+                $options['query'] = $request['queryParams'];
+            }
+
+            if (!empty($request['body'])) {
+                $options['json'] = $request['body'];
+            }
+
+            // Add Authorization header
+            $options['headers']['Authorization'] = 'Bearer ' . $this->retrieveAccessToken();
+
+            // Create an async request
+            $promises[$key] = $this->client->requestAsync($request['method'], $this->buildUrl($request['endpoint']), $options);
+        }
+
+        // Wait for all async requests to complete
+        $responses = Utils::settle($promises)->wait();
+
+        $results = [];
+
+        foreach ($responses as $key => $result) {
+            if ($result['state'] === 'fulfilled') {
+                // Successfully received a response
+                $body = json_decode($result['value']->getBody()->getContents(), true);
+                $body['http_status_code'] = $result['value']->getStatusCode();
+                $results[$key] = $body;
+            } else {
+                // Handle request failures
+                $results[$key] = [
+                    'error' => 'Request failed',
+                    'message' => $result['reason']->getMessage()
+                ];
+            }
+        }
+
+        return $results;
     }
 }

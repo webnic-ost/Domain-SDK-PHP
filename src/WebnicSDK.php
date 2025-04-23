@@ -90,4 +90,9 @@ class WebnicSDK extends ApiConnector
         $response = $this->request("GET", "{$this->baseUrl}/reseller/v2/balance", $options);
         return $response;
     }
+
+    public function sendAsyncRequests(array $requests): array
+    {
+        return $this->asyncRequests($requests);
+    }
 }
