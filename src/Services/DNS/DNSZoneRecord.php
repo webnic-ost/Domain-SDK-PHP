@@ -294,9 +294,9 @@ class DNSZoneRecord extends ApiConnector
      * $response = $webnicSDK->DNSZoneRecord->deleteZoneRecord($zone, $params, $postField);
      * ```
      */
-    public function deleteZoneRecord(string $zone, array $params, array $postField): array
+    public function deleteZoneRecord(string $zone, array $params): array
     {
-        return $this->sendRequest('DELETE', "/$zone/record", ['type' => $params['type'], 'name' => $params['name']], $postField);
+        return $this->sendRequest('DELETE', "/$zone/record", ['type' => $params['type'], 'name' => $params['name']]);
     }
 
     /**
