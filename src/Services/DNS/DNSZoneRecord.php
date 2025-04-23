@@ -277,8 +277,7 @@ class DNSZoneRecord extends ApiConnector
      * @param string $zone The domain zone for which the record is to be deleted (e.g., `example.com`).
      * @param array $params Query parameters to specify the record to be deleted:
      *   - `type` (string, required): The type of the DNS record (e.g., `A`, `CNAME`, `MX`).
-     *   - `name` (string, required): The name of the DNS record (e.g., `mail2`).
-     * @param array $postField Additional data to send in the request body, if required.
+     *   - `name` (string, required): The name of the DNS record (e.g., `mail2`). 
      *
      * @return array The API response indicating whether the record was successfully removed:
      *   - `removed` (boolean): `true` if the record was successfully removed, `false` otherwise.
@@ -289,9 +288,8 @@ class DNSZoneRecord extends ApiConnector
      * $params = [
      *     'type' => 'A',
      *     'name' => 'mail2',
-     * ];
-     * $postField = []; // Add any necessary additional fields here.
-     * $response = $webnicSDK->DNSZoneRecord->deleteZoneRecord($zone, $params, $postField);
+     * ]; 
+     * $response = $webnicSDK->DNSZoneRecord->deleteZoneRecord($zone, $params);
      * ```
      */
     public function deleteZoneRecord(string $zone, array $params): array

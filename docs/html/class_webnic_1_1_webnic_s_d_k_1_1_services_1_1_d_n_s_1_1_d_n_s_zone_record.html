@@ -159,8 +159,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1a1609f9c59c642fb39bc5eef801c450"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6106e10b66587028efe05a21eb052372" id="r_a6106e10b66587028efe05a21eb052372"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6106e10b66587028efe05a21eb052372">deleteZoneBasicRecord</a> (string $zone, array $params)</td></tr>
 <tr class="separator:a6106e10b66587028efe05a21eb052372"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4bd76b77b6cb971e9b0bfb243419b442" id="r_a4bd76b77b6cb971e9b0bfb243419b442"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4bd76b77b6cb971e9b0bfb243419b442">deleteZoneRecord</a> (string $zone, array $params, array $postField)</td></tr>
-<tr class="separator:a4bd76b77b6cb971e9b0bfb243419b442"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab19f44fbe7713e8adee8b5a7d0932d2" id="r_aab19f44fbe7713e8adee8b5a7d0932d2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab19f44fbe7713e8adee8b5a7d0932d2">deleteZoneRecord</a> (string $zone, array $params)</td></tr>
+<tr class="separator:aab19f44fbe7713e8adee8b5a7d0932d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19809993be57bb9484bb31839b59ee60" id="r_a19809993be57bb9484bb31839b59ee60"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19809993be57bb9484bb31839b59ee60">getZoneSubscriptionRecords</a> (string $zone, array $params)</td></tr>
 <tr class="separator:a19809993be57bb9484bb31839b59ee60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b0caf417484a66c5a0fa4d186e9cfee" id="r_a7b0caf417484a66c5a0fa4d186e9cfee"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b0caf417484a66c5a0fa4d186e9cfee">addZoneSubscriptionRecord</a> (string $zone, array $postField)</td></tr>
@@ -298,8 +298,8 @@ Public Member Functions</h2></td></tr>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="a4bd76b77b6cb971e9b0bfb243419b442" name="a4bd76b77b6cb971e9b0bfb243419b442"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4bd76b77b6cb971e9b0bfb243419b442">&#9670;&#160;</a></span>deleteZoneRecord()</h2>
+<a id="aab19f44fbe7713e8adee8b5a7d0932d2" name="aab19f44fbe7713e8adee8b5a7d0932d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab19f44fbe7713e8adee8b5a7d0932d2">&#9670;&#160;</a></span>deleteZoneRecord()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -312,12 +312,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$params</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$postField</em></span>&#160;)</td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$params</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -328,10 +323,9 @@ Public Member Functions</h2></td></tr>
     <tr><td class="paramtype">string</td><td class="paramname">$zone</td><td>The domain zone for which the record is to be deleted (e.g., <code>example.com</code>). </td></tr>
     <tr><td class="paramtype">array</td><td class="paramname">$params</td><td>Query parameters to specify the record to be deleted:<ul>
 <li><code>type</code> (string, required): The type of the DNS record (e.g., <code>A</code>, <code>CNAME</code>, <code>MX</code>).</li>
-<li><code>name</code> (string, required): The name of the DNS record (e.g., <code>mail2</code>). </li>
+<li><code>name</code> (string, required): The name of the DNS record (e.g., <code>mail2</code>).</li>
 </ul>
 </td></tr>
-    <tr><td class="paramtype">array</td><td class="paramname">$postField</td><td>Additional data to send in the request body, if required.</td></tr>
   </table>
   </dd>
 </dl>
@@ -343,9 +337,8 @@ Public Member Functions</h2></td></tr>
 <div class="line">$params = [</div>
 <div class="line">    <span class="stringliteral">&#39;type&#39;</span> =&gt; <span class="charliteral">&#39;A&#39;</span>,</div>
 <div class="line">    <span class="stringliteral">&#39;name&#39;</span> =&gt; <span class="stringliteral">&#39;mail2&#39;</span>,</div>
-<div class="line">];</div>
-<div class="line">$postField = []; <span class="comment">// Add any necessary additional fields here.</span></div>
-<div class="line">$response = $webnicSDK-&gt;DNSZoneRecord-&gt;deleteZoneRecord($zone, $params, $postField);</div>
+<div class="line">]; </div>
+<div class="line">$response = $webnicSDK-&gt;DNSZoneRecord-&gt;deleteZoneRecord($zone, $params);</div>
 </div><!-- fragment --> 
 </div>
 </div>

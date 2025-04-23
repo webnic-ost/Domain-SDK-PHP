@@ -2,7 +2,7 @@ var class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_d_n_s_1_1_d_n_s_zone_record =
 [
     [ "addZoneSubscriptionRecord", "class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_d_n_s_1_1_d_n_s_zone_record.html#a7b0caf417484a66c5a0fa4d186e9cfee", null ],
     [ "deleteZoneBasicRecord", "class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_d_n_s_1_1_d_n_s_zone_record.html#a6106e10b66587028efe05a21eb052372", null ],
-    [ "deleteZoneRecord", "class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_d_n_s_1_1_d_n_s_zone_record.html#a4bd76b77b6cb971e9b0bfb243419b442", null ],
+    [ "deleteZoneRecord", "class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_d_n_s_1_1_d_n_s_zone_record.html#aab19f44fbe7713e8adee8b5a7d0932d2", null ],
     [ "deleteZoneSubscriptionRecord", "class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_d_n_s_1_1_d_n_s_zone_record.html#ac4aadb9943d3cd0dfccffd7a43ed32fa", null ],
     [ "getBasicRecordNameservers", "class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_d_n_s_1_1_d_n_s_zone_record.html#a7b800739372fa87ea3796489ad9c3347", null ],
     [ "getSubscriptionRecordNameservers", "class_webnic_1_1_webnic_s_d_k_1_1_services_1_1_d_n_s_1_1_d_n_s_zone_record.html#aa4a266e228d35a4248e34475f46958a2", null ],
