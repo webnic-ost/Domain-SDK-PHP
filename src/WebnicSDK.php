@@ -95,4 +95,20 @@ class WebnicSDK extends ApiConnector
     {
         return $this->asyncRequests($requests);
     }
+
+    public function sendCustomRequest(string $method, string $endpoint, array $queryParams = [], array $body = []): array
+    {
+        $options = [];
+
+        // Set query parameters if provided
+        if (!empty($queryParams)) {
+            $options['query'] = $queryParams;
+        }
+        if (!empty($body)) {
+            $options['json'] = $body;
+        }
+
+        $response = $this->request($method, $this->baseUrl . $endpoint, $options);
+        return $response;
+    }
 }
