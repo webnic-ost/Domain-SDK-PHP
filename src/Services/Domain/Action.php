@@ -180,11 +180,22 @@ class Action extends ApiConnector
 
             $hostCheck = $this->domainHost->checkHost($nameserver, $extension);
             if ($hostCheck['data']['available']) {
-                $createHostData = [
-                    "host" => $nameserver ?? "",
-                    'ipList' => [],
-                    'ext' => $extension ?? [],
-                ];
+                // Attempt to get IPv4 addresses for the nameserver
+                $ipList = gethostbynamel($nameserver);
+
+                // Fallback to empty array if DNS lookup fails
+                if ($ipList === false) {
+                    $ipList = [];
+                }
+
+                $createHostData = array(
+                    "host" => isset($nameserver) ? $nameserver : "",
+                    'ipList' => $ipList,
+                );
+
+                if (isset($extension)) {
+                    $createHostData['ext'] = $extension;
+                }
                 // Register NS 
                 $createHost = $this->domainHost->createHostByExtension($createHostData);
 
@@ -358,11 +369,15 @@ class Action extends ApiConnector
     {
         $domainInfo = $this->domain->getDomainInfo($domainName);
 
+        if ($domainInfo['code'] != "1000") {
+            return  $domainInfo;
+        }
+
         $returnData = [
             "domainInfo" => $domainInfo['data']
         ];
 
-        if (!$contactInfo || $domainInfo['code'] == "2400") {
+        if (!$contactInfo || $domainInfo['code'] != "1000") {
             return  $domainInfo;
         }
 
@@ -448,62 +463,47 @@ class Action extends ApiConnector
      *
      * @throws \Exception If the transfer request fails or an error occurs during the transfer process.
      */
-    public function transferDomain(string $domainName, string $registrantUserId = '', string $authInfo = '', array $contactIds = [], array $nameservers = [])
-    {
-        $returnData = [];
+    public function transferDomain(
+        string $domainName,
+        string $registrantUserId = '',
+        string $authInfo = '',
+        array $contactIds = [],
+        array $nameservers = []
+    ) {
+        $transferTypeResponse = $this->domainTransfer->queryTransferType($domainName);
 
-        $queryTransferType = $this->domainTransfer->queryTransferType($domainName);
-
-
-        if ($queryTransferType['code'] == "2400") {
-            return $queryTransferType;
+        if ($transferTypeResponse['code'] != '1000') {
+            return $transferTypeResponse;
         }
 
-        $transferType =  $queryTransferType['data']['transferType'];
+        $transferType = $transferTypeResponse['data']['transferType'];
 
-        if ($transferType == "registrar_transfer") {
+        if ($transferType == 'registrar_transfer') {
             $domainData = $this->domain->queryDomain($domainName);
 
             $transferData = [
-                "domainName" => $domainName,
-                "registrantUserId" => $registrantUserId,
-                "authInfo" => $authInfo,
-                "registrantContactId" => $contactIds["registrantContactId"],
-                "administratorContactId" => $contactIds["administratorContactId"],
-                "technicalContactId" => $contactIds["technicalContactId"],
-                "billingContactId" => $contactIds["billingContactId"],
-                "nameservers" => $nameservers,
+                'domainName' => $domainName,
+                'registrantUserId' => $registrantUserId,
+                'authInfo' => $authInfo,
+                'registrantContactId' => $contactIds['registrantContactId'] ?? '',
+                'administratorContactId' => $contactIds['administratorContactId'] ?? '',
+                'technicalContactId' => $contactIds['technicalContactId'] ?? '',
+                'billingContactId' => $contactIds['billingContactId'] ?? '',
+                'nameservers' => $nameservers,
             ];
 
             if (!empty($domainData['data']['premium'])) {
-                $transferData['domainType'] = "premium";
+                $transferData['domainType'] = 'premium';
             }
 
-            $response = $this->domainTransfer->submitRegistrarTransferIn($transferData);
-
-
-
-            if ($response['code'] == "2400") {
-                return $response;
-            }
-            return $response;
-        } else {
-            $transferData = [
-                "domainName" => $domainName,
-                "registrantUserId" => $registrantUserId,
-            ];
-
-            $response = $this->domainTransfer->submitResellerTransfer($transferData);
-
-            if ($response['code'] == "2400") {
-                return $response;
-            }
-
-            return $response;
+            return $this->domainTransfer->submitRegistrarTransferIn($transferData);
         }
 
-        $returnData['queryTransferType'] = $queryTransferType;
-        return $returnData;
+        // For 'reseller_transfer' or other types
+        return $this->domainTransfer->submitResellerTransfer([
+            'domainName' => $domainName,
+            'registrantUserId' => $registrantUserId,
+        ]);
     }
 
     /**
