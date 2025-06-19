@@ -9,3 +9,5 @@ phpDocumentor.phar
 generate_test_cases.php
 GeneratedTestCases.php
 phpunit.xml
+testing.php
+/src/Core/webnic_token.json

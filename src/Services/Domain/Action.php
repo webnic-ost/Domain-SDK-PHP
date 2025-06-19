@@ -95,8 +95,7 @@ class Action extends ApiConnector
      *    [
      *      "nameservers" => ["ns1.example.com", "ns2.example.com"],
      *      "ipList" => ["192.168.1.1", "192.168.1.2"], // Optional
-     *      "extList" => ["com", "com"],                // Optional
-     *      "ext" => ["com", "com"]
+     *      "extList" => ["com", "com"],                // Optional 
      *    ]
      *    ```
      * @param array $contactIds (Optional) Predefined contact IDs.
@@ -168,24 +167,30 @@ class Action extends ApiConnector
                 'queryDomain' => $queryDomain['data'],
             ];
         }
-
         // Validate nameservers
         foreach ($dnsData['nameservers'] as $key => $nameserver) {
-            $extension = $dnsData['ext'][$key] ?? null;
+            if (empty($nameserver)) {
+                continue;
+            }
+            $extension = $dnsData['extList'][$key] ?? null;
             if (!$extension) {
-                return [
-                    'code' => '2400',
-                    'error' => ['message' => 'Extension is missing for one of the nameservers'],
-                ];
+                $parts = explode('.', $nameserver);
+                $extension = end($parts);
             }
 
             $hostCheck = $this->domainHost->checkHost($nameserver, $extension);
-            if (!$hostCheck['data']['available']) {
-                return [
-                    'code' => '2400',
-                    'error' => ['message' => 'Name Server is not available'],
-                    'checkHost' => $hostCheck['data'],
+            if ($hostCheck['data']['available']) {
+                $createHostData = [
+                    "host" => $nameserver ?? "",
+                    'ipList' => [],
+                    'ext' => $extension ?? [],
                 ];
+                // Register NS 
+                $createHost = $this->domainHost->createHostByExtension($createHostData);
+
+                if ($createHost['code'] != "1000") {
+                    return  $createHost;
+                }
             }
         }
 
@@ -206,6 +211,7 @@ class Action extends ApiConnector
             'nameservers' => $dnsData['nameservers'],
             'registrantUserId' => $registrantKey,
         ]);
+
 
         $registerDomain = $this->domain->registerDomain($domainData);
         if ($registerDomain['code'] === '2400') {
