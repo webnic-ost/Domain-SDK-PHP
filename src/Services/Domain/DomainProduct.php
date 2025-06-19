@@ -209,4 +209,50 @@ class DomainProduct extends ApiConnector
 
         return $this->sendRequest('GET', '/ext-rules', $options);
     }
+
+    /**
+     * Suspends the specified domain name.
+     *
+     * This function sends a suspension request for a given domain. A suspended domain may become
+     * inaccessible or have its services (e.g., website, email) temporarily disabled.
+     *
+     * @param string $domainName  The full domain name to be suspended (e.g., 'example.com').
+     *
+     * @return array An associative array containing the response from the suspension request.
+     *               Typically includes status code, message, and any additional details.
+     *
+     * Example request:
+     * ```php
+     * // Suspend the domain 'example.com'.
+     * $response = $webnicSDK->domainAction->suspendDomain('example.com');
+     * ```
+     */
+
+    public function suspendDomain(string $domainName): array
+    {
+        return $this->sendRequest('POST', '/suspend', ["domainName" => $domainName]);
+    }
+
+    /**
+     * Retrieves the suspension status of a domain.
+     *
+     * This function checks whether a given domain is currently suspended. It provides the current
+     * status and relevant details such as reason for suspension or timestamp.
+     *
+     * @param string $domainName  The full domain name to check (e.g., 'example.com').
+     *
+     * @return array An associative array containing the suspension status of the domain.
+     *               Typically includes flags or messages indicating active, suspended, or unknown status.
+     *
+     * Example request:
+     * ```php
+     * // Check if 'example.com' is currently suspended.
+     * $response = $webnicSDK->domainAction->getDomainSuspendStatus('example.com');
+     * ```
+     */
+
+    public function getDomainSuspendStatus(string $domainName): array
+    {
+        return $this->sendRequest('GET', '/suspendStatus', ["domainName" => $domainName]);
+    }
 }

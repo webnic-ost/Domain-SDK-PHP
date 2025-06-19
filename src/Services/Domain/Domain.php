@@ -386,7 +386,7 @@ class Domain extends ApiConnector
      * This function allows you to renew a domain. Upon a successful domain renewal, the system will lock renewal of the domain
      * name for the same day to prevent duplicate renewals.
      *
-     * @param array $renewData The request body data, including:
+     * @param array $postField The request body data, including:
      *   - `domainName` (string, required): The domain name to be renewed, e.g., `example.com`.
      *   - `domainType` (string, optional): Specifies the type of domain name to be renewed. Default value: `"standard"`. 
      *     Allowed values: `"standard"`, `"premium"`, `"rereg"`.
@@ -398,18 +398,18 @@ class Domain extends ApiConnector
      *
      * Example request:
      * ```php
-     * $renewData = [
+     * $postField = [
      *     'domainName' => 'example.com',
      *     'domainType' => 'standard',
      *     'term' => 1,
      * ];
-     * $response = $webnicSDK->domain->renewDomain($renewData);
+     * $response = $webnicSDK->domain->renewDomain($postField);
      * ```
      */
 
-    public function renewDomain(array $renewData): array
+    public function renewDomain(array $postField): array
     {
-        return $this->sendRequest('POST', '/renew', [], $renewData);
+        return $this->sendRequest('POST', '/renew', [], $postField);
     }
 
     /**
@@ -418,7 +418,7 @@ class Domain extends ApiConnector
      * This function allows you to restore a domain that has expired or been deleted. You must provide the domain name
      * and confirm the restoration agreement policy in the request body.
      *
-     * @param array $restoreData The request body data, including:
+     * @param array $postField The request body data, including:
      *   - `domainName` (string, required): The domain name to be restored, e.g., `example.com`.
      *   - `agreeRestorePolicy` (boolean, required): A flag to indicate agreement with the restore policy. Allowed value: `"true"`.
      *
@@ -426,18 +426,16 @@ class Domain extends ApiConnector
      *
      * Example request:
      * ```php
-     * $restoreData = [
+     * $postField = [
      *     'domainName' => 'example.com',
      *     'agreeRestorePolicy' => true,
      * ];
-     * $response = $webnicSDK->domain->restoreDomain($restoreData);
+     * $response = $webnicSDK->domain->restoreDomain($postField);
      * ```
      */
-    public function restoreDomain(array $restoreData): array
+    public function restoreDomain(array $postField): array
     {
-        $body = $restoreData;
-
-        return $this->sendRequest('POST', '/restore', [], $body);
+        return $this->sendRequest('POST', '/restore', [], $postField);
     }
 
     /**
