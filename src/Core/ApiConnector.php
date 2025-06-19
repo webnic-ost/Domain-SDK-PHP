@@ -116,15 +116,36 @@ class ApiConnector
             $responseBody['http_status_code'] = $response->getStatusCode();
             return $responseBody;
         } catch (GuzzleException $e) {
-            if ($e instanceof \GuzzleHttp\Exception\ClientException) {
-                $response = $e->getResponse();
-                if ($response) {
-                    $responseBody = json_decode($response->getBody()->getContents(), true);
-                    $responseBody['http_status_code'] = $response->getStatusCode();
-                    return $responseBody;
+            $response = method_exists($e, 'getResponse') ? $e->getResponse() : null;
+
+            if ($response) {
+                $body = (string) $response->getBody();
+                $decoded = json_decode($body, true);
+
+                if (json_last_error() === JSON_ERROR_NONE) {
+                    // Return the actual decoded message from response
+                    $decoded['http_status_code'] = $response->getStatusCode();
+                    return $decoded;
+                } else {
+                    // Return raw body if JSON decoding fails
+                    return [
+                        'code' => '2400',
+                        'error' => [
+                            'message' => $body
+                        ]
+                    ];
                 }
             }
-            throw new \Exception('Request failed: ' . $e->getMessage());
+
+            // Fall back to default error message
+            return [
+                'code' => '2400',
+                'error' => [
+                    'message' => $e->getMessage()
+                ]
+            ];
+
+            // throw new \Exception('Request failed: ' . $e->getMessage());
         }
     }
 
@@ -162,7 +183,15 @@ class ApiConnector
             $response = $this->request($method, $this->buildUrl($endpoint), $options);
             return $response;
         } catch (GuzzleException $e) {
-            throw new \Exception('Request failed: ' . $e->getMessage());
+
+            return array(
+                'code' => '2400',
+                'error' =>  array(
+                    'message' =>  $e->getMessage()
+                )
+            );
+
+            // throw new \Exception('Request failed: ' . $e->getMessage());
         }
     }
 
@@ -209,6 +238,7 @@ class ApiConnector
                 // Handle request failures
                 $results[$key] = [
                     'error' => 'Request failed',
+                    'code' => '2400',
                     'message' => $result['reason']->getMessage()
                 ];
             }
