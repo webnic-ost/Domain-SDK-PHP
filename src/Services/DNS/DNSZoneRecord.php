@@ -63,7 +63,7 @@ class DNSZoneRecord extends ApiConnector
      */
     public function getZoneRecords(string $zone, array $postField): array
     {
-        return $this->sendRequest('GET', "/zone/$zone/records", [], $postField);
+        return $this->sendRequest('GET', "/$zone/records", [], $postField);
     }
 
 

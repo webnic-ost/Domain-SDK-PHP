@@ -88,6 +88,7 @@ class DNSZone extends ApiConnector
         return $this->sendRequest('POST', "/zone", [], $postField);
     }
 
+
     /**
      * Retrieves domain zone details by zone.
      *
@@ -176,5 +177,10 @@ class DNSZone extends ApiConnector
     public function getPremiumSubscriptionStatistics(): array
     {
         return $this->sendRequest('GET', "/premium-subscription/statistics");
+    }
+
+    public function addDomainZoneToNSSubscription(string $zone, array $postField): array
+    {
+        return $this->sendRequest('POST', "/zone/$zone/nameserver-subscription", [], $postField);
     }
 }
