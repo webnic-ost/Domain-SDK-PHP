@@ -14,9 +14,6 @@
     }
   },
   "require": {
-    "php": ">=7.4 <=8.2",
-    "guzzlehttp/guzzle": "^7.0",
-    "guzzlehttp/promises": "^2.0",
-    "symfony/deprecation-contracts": "^2.5"
+    "php": ">=7.3 <=8.2"
   }
 }

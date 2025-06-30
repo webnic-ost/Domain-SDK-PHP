@@ -31,7 +31,7 @@ use Webnic\WebnicSDK\Services\DNS\{
 class WebnicSDK extends ApiConnector
 {
     // Array to hold service instances
-    protected array $services = [];
+    protected $services = array();
 
     public function __construct(string $clientId, string $clientSecret, array $config)
     {

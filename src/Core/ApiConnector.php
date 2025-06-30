@@ -3,14 +3,14 @@
 
 namespace Webnic\WebnicSDK\Core;
 
-use GuzzleHttp\Client as GuzzleClient;
-use GuzzleHttp\Exception\GuzzleException;
-use GuzzleHttp\Promise\Utils;
+// use GuzzleHttp\Client as GuzzleClient;
+// use GuzzleHttp\Exception\GuzzleException;
+// use GuzzleHttp\Promise\Utils;
 
 class ApiConnector
 {
     protected ?string $apiKey = null; // Initialize as null
-    protected GuzzleClient $client;
+    // protected GuzzleClient $client;
     protected string $baseUrl;
     protected string $clientId;
     protected string $clientSecret;
@@ -31,19 +31,14 @@ class ApiConnector
         $this->baseUrl = $config['baseUrl'] ?? 'https://oteapi.webnic.cc';
         $this->apiVersion = $config['apiVersion'] ?? '/v2';
 
-        $this->client = new GuzzleClient();
-
-        // Retrieve access token on initialization
-        $this->apiKey = $this->retrieveAccessToken();
+        // $this->client = new GuzzleClient();
     }
 
-    protected function retrieveAccessToken(): string
+    protected function retrieveAccessToken(): array
     {
-        // if ($this->apiKey !== null && $this->isTokenValid()) {
-        //     return $this->apiKey; // Return existing valid token
-        // }
 
         $filePath = __DIR__ . '/webnic_token.json';
+        $baseUrl = $this->baseUrl;
 
         // Ensure the file exists before reading
         if (!file_exists($filePath)) {
@@ -52,39 +47,62 @@ class ApiConnector
         // Read token from file if it exists
         $tokenData = json_decode(file_get_contents($filePath), true);
         if (isset($tokenData['token'], $tokenData['expires_at'])) {
-            if (new \DateTime($tokenData['expires_at']) > new \DateTime()) {
-                return $tokenData['token'];
+            if (new \DateTime($tokenData['expires_at']) > new \DateTime() && $tokenData['base_url'] == $baseUrl) {
+                return array(
+                    "code" => '1000',
+                    "token" => $tokenData['token'],
+                    'message' => ''
+                );
             }
         }
 
         try {
-            $response = $this->client->post($this->tokenEndpoint, [
-                'json' => [
-                    'username' => $this->clientId,
-                    'password' => $this->clientSecret,
-                ],
-                'headers' => [
-                    'Content-Type' => 'application/json',
-                ],
-            ]);
 
-            $data = json_decode($response->getBody()->getContents(), true);
-            if (isset($data['data']['access_token'])) {
-                $accessToken = $data['data']['access_token'];
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $this->tokenEndpoint);
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array(
+                'username' => $this->clientId,
+                'password' => $this->clientSecret,
+            )));
+
+            $response = curl_exec($ch);
+            curl_close($ch);
+
+            $responseDecode = json_decode($response, true);
+            if (isset($responseDecode['data']['access_token'])) {
+                $accessToken = $responseDecode['data']['access_token'];
                 $tokenExpiration = (new \DateTime('+50 minutes'))->format('Y-m-d H:i:s');
 
                 // Save token to file (overwrite existing or create new file)
                 file_put_contents($filePath, json_encode([
                     'token' => $accessToken,
-                    'expires_at' => $tokenExpiration
+                    'expires_at' => $tokenExpiration,
+                    'base_url' => $baseUrl,
                 ], JSON_PRETTY_PRINT));
 
-                return $accessToken;
+                return array(
+                    "code" => '1000',
+                    "token" => $accessToken,
+                    'message' => ''
+                );
             } else {
-                throw new \Exception('No access token received');
+                return array(
+                    "code" => '2400',
+                    "token" => "",
+                    'message' => "Access Token retrieval Error: " . $responseDecode['error']['message'] ?? ""
+                );
             }
-        } catch (GuzzleException $e) {
-            throw new \Exception('Token retrieval failed: ' . $e->getMessage());
+        } catch (\Exception $e) {
+            // Fall back to default error message
+            return array(
+                'code' => '2400',
+                'error' => array(
+                    'message' => "Access Token retrieval Error: " . $e->getMessage()
+                ),
+            );
         }
     }
 
@@ -96,57 +114,100 @@ class ApiConnector
 
     protected function request(string $method, string $url, array $options = [])
     {
-        // Ensure we have a valid token before making the request
-        $options['headers']['Authorization'] = 'Bearer ' . $this->retrieveAccessToken();
+        $getToken = $this->retrieveAccessToken();
+        if ($getToken['code'] != '1000') {
+            return $getToken;
+        }
 
-        // echo "Request URL: $url\n";
+        $token = $getToken['token'];
 
-        // $remainingTime = $this->tokenExpiration->getTimestamp() - (new \DateTime())->getTimestamp();
-        // if ($remainingTime <= 50 * 60 && $remainingTime > 0) {
-        //     echo "Token will expire in " . floor($remainingTime / 60) . " minutes. \n\n";
-        // }
+        // Prepare headers
+        $headers = [
+            'Authorization: Bearer ' . $token,
+            'Content-Type: application/json',
+            'Accept: application/json'
+        ];
 
-        try {
-            // return $this->client->request($method, $url, $options);
-            // Make the request
-            $response = $this->client->request($method, $url, $options);
-
-            // Decode JSON response body if it’s JSON, and add HTTP status code
-            $responseBody = json_decode($response->getBody()->getContents(), true);
-            $responseBody['http_status_code'] = $response->getStatusCode();
-            return $responseBody;
-        } catch (GuzzleException $e) {
-            $response = method_exists($e, 'getResponse') ? $e->getResponse() : null;
-
-            if ($response) {
-                $body = (string) $response->getBody();
-                $decoded = json_decode($body, true);
-
-                if (json_last_error() === JSON_ERROR_NONE) {
-                    // Return the actual decoded message from response
-                    $decoded['http_status_code'] = $response->getStatusCode();
-                    return $decoded;
+        // Handle query parameters
+        if (!empty($options['query'])) {
+            $queryString = '';
+            foreach ($options['query'] as $key => $value) {
+                if (is_array($value)) {
+                    foreach ($value as $v) {
+                        $queryString .= urlencode($key) . '=' . urlencode($v) . '&';
+                    }
                 } else {
-                    // Return raw body if JSON decoding fails
-                    return [
-                        'code' => '2400',
-                        'error' => [
-                            'message' => $body
-                        ]
-                    ];
+                    $queryString .= urlencode($key) . '=' . urlencode($value) . '&';
                 }
             }
+            $url .= '?' . rtrim($queryString, '&');
+        }
 
-            // Fall back to default error message
+        // Handle body
+        $body = '';
+        if (!empty($options['json'])) {
+            $body = json_encode($options['json']);
+        }
+
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, strtoupper($method));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        curl_setopt($ch, CURLOPT_ENCODING, '');
+        curl_setopt($ch, CURLOPT_MAXREDIRS, 10);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        if (!empty($body)) {
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $body);
+        }
+
+        $response = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $curlError = curl_error($ch);
+
+        curl_close($ch);
+
+        // Handle response
+        if ($response === false) {
             return [
                 'code' => '2400',
                 'error' => [
-                    'message' => $e->getMessage()
+                    'message' => $curlError
                 ]
             ];
-
-            // throw new \Exception('Request failed: ' . $e->getMessage());
         }
+
+        $decoded = json_decode($response, true);
+
+        if (json_last_error() === JSON_ERROR_NONE) {
+            $decoded['url_request'] = $url;
+            $decoded['http_status_code'] = $httpCode;
+
+            // Token invalidation logic
+            if (
+                isset($decoded['error']['message']) &&
+                $decoded['error']['message'] == "Invalid or expired token. Reason: Provided token isn't active"
+            ) {
+                $filePath = __DIR__ . '/webnic_token.json';
+                if (file_exists($filePath)) {
+                    unlink($filePath);
+                }
+            }
+
+            return $decoded;
+        }
+
+        return [
+            'code' => '2400',
+            'error' => [
+                'message' => $response
+            ]
+        ];
     }
 
     protected function buildUrl(string $endpoint): string
@@ -154,19 +215,6 @@ class ApiConnector
         return "{$this->baseUrl}{$this->serviceUrl}{$endpoint}";
     }
 
-    /**
-     * sendRequest from the specified endpoint using the given HTTP method.
-     *
-     * This function handles both query parameters and JSON body for the request.
-     *
-     * @param string $method       The HTTP method to use (GET, POST, PUT, etc.).
-     * @param string $endpoint     The API endpoint to request.
-     * @param array $queryParams   Optional query parameters for the request.
-     * @param array $body          Optional JSON body for the request.
-     * @return array The response decoded as an associative array.
-     *
-     * @throws \Exception If the request fails.
-     */
     protected function sendRequest(string $method, string $endpoint, array $queryParams = [], array $body = []): array
     {
         $options = [];
@@ -182,7 +230,7 @@ class ApiConnector
         try {
             $response = $this->request($method, $this->buildUrl($endpoint), $options);
             return $response;
-        } catch (GuzzleException $e) {
+        } catch (\Exception $e) {
 
             return array(
                 'code' => '2400',
@@ -190,8 +238,6 @@ class ApiConnector
                     'message' =>  $e->getMessage()
                 )
             );
-
-            // throw new \Exception('Request failed: ' . $e->getMessage());
         }
     }
 
@@ -203,47 +249,64 @@ class ApiConnector
      */
     public function asyncRequests(array $requests): array
     {
-        $promises = [];
-
-        foreach ($requests as $key => $request) {
-            $options = [];
-
-            if (!empty($request['queryParams'])) {
-                $options['query'] = $request['queryParams'];
-            }
-
-            if (!empty($request['body'])) {
-                $options['json'] = $request['body'];
-            }
-
-            // Add Authorization header
-            $options['headers']['Authorization'] = 'Bearer ' . $this->retrieveAccessToken();
-
-            // Create an async request
-            $promises[$key] = $this->client->requestAsync($request['method'], $this->buildUrl($request['endpoint']), $options);
+        $getToken = $this->retrieveAccessToken();
+        if ($getToken['code'] != '1000') {
+            return $getToken;
         }
 
-        // Wait for all async requests to complete
-        $responses = Utils::settle($promises)->wait();
+        $token = $getToken['token'];
 
-        $results = [];
+        $multiHandle = curl_multi_init();
+        $curlHandles = array();
+        $responses = array();
+        $endpoints = array();
 
-        foreach ($responses as $key => $result) {
-            if ($result['state'] === 'fulfilled') {
-                // Successfully received a response
-                $body = json_decode($result['value']->getBody()->getContents(), true);
-                $body['http_status_code'] = $result['value']->getStatusCode();
-                $results[$key] = $body;
-            } else {
-                // Handle request failures
-                $results[$key] = [
-                    'error' => 'Request failed',
-                    'code' => '2400',
-                    'message' => $result['reason']->getMessage()
-                ];
+        foreach ($requests as $key => $req) {
+            $fullRequestUrl = $this->buildUrl($req['endpoint']);
+
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $fullRequestUrl);
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, strtoupper($req['method']));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_ENCODING, '');
+            curl_setopt($ch, CURLOPT_MAXREDIRS, 10);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 0);
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+            curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
+
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                'Authorization: Bearer ' . $token,
+                'Content-Type: application/json',
+            ));
+
+            if (!empty($req['body'])) {
+                curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($req['body']));
             }
+
+            curl_multi_add_handle($multiHandle, $ch);
+            $curlHandles[$key] = $ch;
         }
 
-        return $results;
+        $running = null;
+        do {
+            curl_multi_exec($multiHandle, $running);
+            curl_multi_select($multiHandle);
+        } while ($running > 0);
+
+        foreach ($curlHandles as $key => $ch) {
+            $response = curl_multi_getcontent($ch);
+            $decodedResponse = json_decode($response, true);
+            $responses[$key] = $decodedResponse;
+
+            $info = curl_getinfo($ch, CURLINFO_EFFECTIVE_URL);
+            $endpoints[] = $info;
+
+            curl_multi_remove_handle($multiHandle, $ch);
+            curl_close($ch);
+        }
+
+        curl_multi_close($multiHandle);
+
+        return $responses;
     }
 }
